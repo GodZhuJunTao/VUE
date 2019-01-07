@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="carousel">
-            <mt-swipe :show-indicators="false" :auto="2000">
+            <mt-swipe :auto="2000">
                 <mt-swipe-item v-for="item in cflist" :key="item.name">
-                    <img :src="item.imgUrl">
+                    <img :src="item.imgUrl" class="img">
                 </mt-swipe-item>
             </mt-swipe>
         </div>
@@ -39,15 +39,40 @@ export default {
 </script>
 
 <style lang="scss">
-    .mint-swipe img{
-        height: 98px;
-        width: 100%;
-        border-radius: 5px;
+    // .is-active{
+    //     border-radius: 5px;
+    // }
+    .mint-swipe{
+        overflow: visible;
+    }
+    .mint-swipe-item{
+        img{
+            height: 98px;
+            width: 100%;    
+            border-radius: 5px;
+        }
     }
     .carousel{
         margin-top: 85px;
         padding: 0 10px;
         height: 98px;
+    }
+    .mint-swipe-indicators{
+        bottom: -20px;
+    }
+    .mint-swipe-indicator {
+        width: 15px;
+        height: 3px;
+        display: inline-block;
+        border-radius: 0;
+        background: #000;
+        opacity: 0.2;
+        margin: 0 3px;
+        
+    }
+    .mint-swipe-indicator.is-active{
+        background: #007aff;
+        opacity: 1;
     }
     .header{
         height: 80px;

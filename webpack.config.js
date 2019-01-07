@@ -30,7 +30,8 @@ module.exports = {
                 changeOrigin:true,
                 pathRewrite:{'^/ygapi':''},// 替换部分路径
             }
-        }
+        },
+        host:'0.0.0.0'
     },
 
     resolve:{
