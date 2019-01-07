@@ -7,7 +7,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
     // 入口文件
     entry:{
-        main:'./src/index.js',
+        main:'./src/main.js',
     },
 
     // 出口：打包文件放置的目录
@@ -22,13 +22,13 @@ module.exports = {
 
     // 测试服务器：安装
     devServer:{
-        contentBase:'./app/',
-        port:1809,
+        contentBase:'./src/',
+        port:18009,
         proxy:{
-            '/dbapi':{
-                target:"http://api.douban.com/v2/movie",// 代理目标服务器
+            '/ygapi':{
+                target:"http://router.111yao.com/sltRouter",// 代理目标服务器
                 changeOrigin:true,
-                pathRewrite:{'^/dbapi':''},// 替换部分路径
+                pathRewrite:{'^/ygapi':''},// 替换部分路径
             }
         }
     },
