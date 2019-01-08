@@ -39,6 +39,22 @@
                 <dd v-for="item in mlist" :key="item.title">{{item.title}}</dd>
             </dl>
         </div>
+        <div class="hotgoods">
+            <h2>热销商品</h2>
+            <cube-scroll
+            ref="scroll"
+            direction="horizontal"
+            class="horizontal-scroll-list-wrap">
+                <ul class="list-wrapper">
+                    <li v-for="(item,idx) in hotgoods" class="list-item" :key="idx">
+                        <img :src="item.img"/>
+                        <p class="hot_title">{{item.short_name}}</p>
+                        <p class="hot_price">￥{{item.price}}</p>
+                    </li>
+                </ul>
+            </cube-scroll>
+        </div>
+        <div class="footer">我是有底线的</div>
     </div>
 </template>
 
@@ -48,7 +64,72 @@ export default {
         return {
             cflist:[],
             typelist:[],
-            mlist:[]
+            mlist:[],
+            hotgoods:[
+                {
+                    "price": 26.9,
+                    "goodsno": "0301035",
+                    "goods_id": 3151,
+                    "short_name": "同仁堂 五子衍宗丸",
+                    "img":"../assets/hotgoods/trt.jpg"
+                },
+                {
+                    "price": 29,
+                    "goodsno": "0113132",
+                    "goods_id": 7531,
+                    "short_name": "格华止 盐酸二甲双胍片",
+                    "img":"../assets/hotgoods/zkt.jpg"
+                },
+                {
+                    "price": 33.9,
+                    "goodsno": "0314196",
+                    "goods_id": 5850,
+                    "short_name": "同仁堂 右归丸",
+                    "img":"../assets/hotgoods/ygw.jpg"
+                },
+                {
+                    "price": 15,
+                    "goodsno": "0405007",
+                    "goods_id": 1305,
+                    "short_name": "999  三九胃泰颗粒",
+                    "img":"../assets/hotgoods/999.jpg"
+                },
+                {
+                    "price": 14.3,
+                    "goodsno": "0405036",
+                    "goods_id": 5583,
+                    "short_name": "北华 枸橼酸钾颗粒",
+                    "img":"../assets/hotgoods/bh.jpg"
+                },
+                {
+                    "price": 29,
+                    "goodsno": "0113132",
+                    "goods_id": 7531,
+                    "short_name": "格华止 盐酸二甲双胍片",
+                    "img":"../assets/hotgoods/zkt.jpg"
+                },
+                {
+                    "price": 33.9,
+                    "goodsno": "0314196",
+                    "goods_id": 5850,
+                    "short_name": "同仁堂 右归丸",
+                    "img":"../assets/hotgoods/ygw.jpg"
+                },
+                {
+                    "price": 15,
+                    "goodsno": "0405007",
+                    "goods_id": 1305,
+                    "short_name": "999  三九胃泰颗粒",
+                    "img":"../assets/hotgoods/999.jpg"
+                },
+                {
+                    "price": 14.3,
+                    "goodsno": "0405036",
+                    "goods_id": 5583,
+                    "short_name": "北华 枸橼酸钾颗粒",
+                    "img":"../assets/hotgoods/bh.jpg"
+                }  
+            ]
         }
     },
     created(){
@@ -63,7 +144,54 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .hotgoods{
+        h2{
+            font-family: SimHei,Helvetica,Arial,sans-serif;
+            font-size: 18px;
+            color: #4d4e58;
+            font-weight: 600;
+            margin:20px 0;
+        }
+        // .hotgoods-scroll{
+        //     border-radius: 5px
+        // }
+        .cube-scroll-content{
+            display: inline-block;
+        }
+        .list-wrapper{
+            // padding: 0 10px;
+            // line-height: 60px;
+            white-space: nowrap;
+        }
+        .list-item{
+            // float: left;
+            display: inline-block;
+            width: 85px;
+            img{
+                width: 64px;
+                height: 64px;
+            }
+            .hot_title{
+                font-size: 12px;
+                height: 15px;
+                overflow: hidden;
+                -webkit-line-clamp: 1;
+                color: #4d4e58;
+                word-break: keep-all;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .hot_price{
+                font-size: 12px;
+                height: 15px;
+                color: #ff6b5f;
+                margin-top: 5px;
+                font-family: SimHei,Helvetica,Arial,sans-serif;
+                font-weight: 600;
+            }
+        }
+    }
     // 健康头条
     .headline{
         height: 58px;
@@ -75,8 +203,8 @@ export default {
         dl {
             dt {
                 float: left;
-                line-height: 58px;
-                height: 58px;
+                line-height: 56px;
+                height: 56px;
                 width: 76px;
                 img{
                     margin-top:17px;
@@ -89,7 +217,7 @@ export default {
                 width: 75%;
                 // display: table;
                 height: 56px;
-                // overflow: hidden;
+                overflow: hidden;
                 -webkit-line-clamp: 1;
                 word-break: keep-all;
                 white-space: nowrap;
@@ -256,5 +384,8 @@ export default {
             left:10px;
             top:35px;
         }
+    }
+    .footer{
+        height: 80px;
     }
 </style>
