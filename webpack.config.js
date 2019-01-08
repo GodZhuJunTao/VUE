@@ -3,6 +3,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const TransformModulesPlugin = require('webpack-transform-modules-plugin');
 
 module.exports = {
     // 入口文件
@@ -39,7 +40,8 @@ module.exports = {
         alias:{
             'vue$':'vue/dist/vue',
             '@':path.resolve('src'),
-            'com':path.resolve('src/components')
+            'com':path.resolve('src/components'),
+            'cube-ui': 'cube-ui/lib'
         },
         extensions:['.js','.json','.vue']
     },
@@ -81,6 +83,11 @@ module.exports = {
                 loader:['style-loader','css-loader','sass-loader']
             },
 
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
+            },
+
             // 图片的处理：依赖file-loader
             {
                 test:/\.(jpe?g|png|gif|bmp)$/,
@@ -106,6 +113,9 @@ module.exports = {
         new VueLoaderPlugin(),
         
         // 每次编译先清除dist目录
-        new CleanWebpackPlugin('dist')
+        new CleanWebpackPlugin('dist'),
+
+        // 
+        new TransformModulesPlugin()
     ]
 }

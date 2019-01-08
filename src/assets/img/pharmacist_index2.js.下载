@@ -1,0 +1,195 @@
+var timestamp=new Date().getTime();
+var users=timestamp+"-"+parseInt(99999*Math.random());
+var thisuser_cookie=getCookieUser('thisuser_cookie');
+var thisuser_cookie2=getCookieUser('thisuser_cookie2');
+if(thisuser_cookie=="" || thisuser_cookie==null || thisuser_cookie=="null" || thisuser_cookie==undefined || thisuser_cookie=="undefined")
+{
+    setCookieUser('thisuser_cookie',"Youke_"+users,365); //会话保存时间为365天   
+}
+if(thisuser_cookie2=="" || thisuser_cookie2==null || thisuser_cookie2=="null" || thisuser_cookie2==undefined || thisuser_cookie2=="undefined")
+{
+    setCookieUser('thisuser_cookie2',"游客_"+users,365); //会话保存时间为365天
+}
+function getCookieUser(c_name){
+    if (document.cookie.length>0){
+        c_start=document.cookie.indexOf(c_name + "=")
+        if (c_start!=-1)
+        { 
+            c_start=c_start + c_name.length+1 
+            c_end=document.cookie.indexOf(";",c_start)
+            if (c_end==-1) c_end=document.cookie.length
+            return unescape(document.cookie.substring(c_start,c_end))
+        } 
+    }
+    return ""
+}
+
+function setCookieUser(c_name,value,expiredays)
+{
+    var exdate=new Date()
+    exdate.setDate(exdate.getDate()+expiredays)
+    document.cookie=c_name+ "=" +escape(value)+
+    ((expiredays==null) ? "" : ";path=/;expires="+exdate.toGMTString())
+}
+
+function checkCookieUser()
+{
+    username=getCookie('username')
+    if (username!=null && username!="")
+    {
+        alert('Welcome again '+username+'!')
+    }
+    else 
+    {
+        username=prompt('Please enter your name:',"")
+        if (username!=null && username!="")
+        {
+            setCookie('username',username,365)
+        }
+    }
+}
+
+//关闭本页面
+function close_this()
+{  
+  var from=GetUrlParms("from");
+    var u = navigator.userAgent, app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; 
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(from.from==2)
+    {
+        if(isAndroid)
+        {
+            contact.close_index();
+        }
+        else if(isiOS)
+        {
+           document.location = "type*"+"close_this";
+        } 
+    }
+  else
+  {
+    window.location.href="/";
+  }  
+}
+//获取url参数
+function GetUrlParms()
+{
+    var args=new Object();
+    var query=location.search.substring(1);//获取查询串
+    var pairs=query.split("&");//在逗号处断开
+    for(var i=0;i<pairs.length;i++)
+    {
+        var pos=pairs[i].indexOf('=');//查找name=value
+            if(pos==-1)   continue;//如果没有找到就跳过
+            var argname=pairs[i].substring(0,pos);//提取name
+            var value=pairs[i].substring(pos+1);//提取value 
+            args[argname]=unescape(value);//存为属性
+    }
+    return args;
+}
+//安卓传过来username,截取并get
+function getUsername(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+var userName=getUsername("username");
+function getCookieValue(cookieName)
+{
+    var cookieValue = document.cookie;
+    var cookieStartAt = cookieValue.indexOf(""+cookieName+"=");
+    if(cookieStartAt == -1)
+    {
+        cookieStartAt = cookieValue.indexOf(cookieName+"=");
+    }
+    if(cookieStartAt == -1)
+    {
+        cookieValue = '';
+    }
+    else
+    {
+        cookieStartAt = cookieValue.indexOf("=",cookieStartAt)+1;
+        cookieEndAt = cookieValue.indexOf(";",cookieStartAt);
+        if(cookieEndAt==-1)
+        {
+            cookieEndAt = cookieValue.length;
+        }
+        cookieValue = unescape(cookieValue.substring(cookieStartAt,cookieEndAt));//解码latin-1
+    }
+    return cookieValue;
+}
+var ntkf_param_uid = getCookieValue("cookusername");
+var ntkf_param_uname = getCookieValue("cookusername");
+//安卓没有cookie,获取username,给小能页
+if(userName != 'null' && userName != '' && userName != null && userName != 'undefined' && userName.toString().length>1)
+{
+    if(!ntkf_param_uid){
+        ntkf_param_uid = userName;
+    }
+    if(!ntkf_param_uname){
+        ntkf_param_uname = userName;
+    }
+}
+
+//获取 userId
+function getMenmberid(){
+    var userId="";
+    $.ajax({
+        url: "/index!getMemberId.action",
+        dataType:"json",
+        async:false,
+        cache:false,
+        type:"post",
+        success:function(data){
+            if(data.userId<=0){
+                userId=0;
+            }
+            else{
+                userId = data.userId;
+            }            
+        },error:function() {
+            console.log("error-userid");
+        }
+    })
+    return userId;
+}
+userId=getMenmberid();
+//获取 memberCardNo
+function getmemberCardNo(){
+    var memberCardNo="";
+     $.ajax({
+        url: "http://router.111yao.com/sltRouter?method=getMemberCardNoAndId&platformType=wap&memberId="+userId,
+        dataType:"json",
+        async:false,
+        cache:false,
+        type:"post",
+        success:function(data){
+            memberCardNo=data.memberCardNo;
+        },error:function(){
+            console.log("error-userid");
+        }
+    })
+    return memberCardNo;
+}
+
+memberCardNo=getmemberCardNo();
+if(memberCardNo<=0)
+{
+    thisuser_cookie=getCookieUser('thisuser_cookie');
+    thisuser_cookie2=getCookieUser('thisuser_cookie');
+    var qimoClientId={userId:thisuser_cookie,nickName:thisuser_cookie2};
+    setCookieUser("7mooruserId",thisuser_cookie,365);
+    setCookieUser("7moornickName",thisuser_cookie2,365);
+}
+else
+{
+    userIds=userId+"@"+"memberId="+String(userId)+"@"+"memberCardNo="+String(memberCardNo);
+    //var qimoClientId={userId:userIds,nickName:ntkf_param_uname};
+    //修改传值方式 凤威
+    var qimoClientId={userId:memberCardNo,nickName:ntkf_param_uname};
+    setCookieUser("7mooruserId",memberCardNo,365);
+    setCookieUser("7moornickName",ntkf_param_uname,365);
+}
+console.log(qimoClientId);

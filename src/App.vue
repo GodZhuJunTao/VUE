@@ -1,7 +1,7 @@
 <template>
     <div>
         <router-view/>
-        <mt-tabbar v-model="selected">
+        <mt-tabbar v-model="selected" fixed>
             <mt-tab-item :id="tab.name" v-for="tab in tabs" :key="tab.name" @click.native="goto(tab.path)">
                 <myicons :type="tab.icon" />
                 {{tab.text}}
@@ -18,7 +18,11 @@ Vue.use(myicons);
 // 引入并使用Mintui
 import MinUi from 'mint-ui';
 Vue.use(MinUi);
+// 引入并使用Cube
+import Cube from 'cube-ui';
+Vue.use(Cube);
 import 'mint-ui/lib/style.css';
+// import 'cube-ui/lib/style.css';
 import './sass/common.scss';
 
 import axios from 'axios';
