@@ -84,9 +84,13 @@ export default {
     }
     .mint-tab-item-label{
         color:black;
-        font-size: 8px;
+        font-size: .75rem;
     }
     svg{
-        margin-bottom: 4px;
+        path{
+            width: 1rem;
+            height: 1rem;
+        }
+        margin-bottom: 0.25rem;
     }
 </style>
