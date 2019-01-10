@@ -11,7 +11,7 @@ body>div{height: 100%;}
     // -webkit-box-shadow:inset 0 0 0.3125rem rgba(0,0,0,.2);
     background:rgba(0,0,0,.2)
 }
-
+fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
 // Classfiy下面的nav
 #con{
     .cube-scroll-content{

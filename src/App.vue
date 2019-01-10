@@ -24,6 +24,7 @@ Vue.use(Cube);
 import 'mint-ui/lib/style.css';
 // import 'cube-ui/lib/style.css';
 import './sass/common.scss';
+import './plugins/icon/iconfont.css';
 
 import axios from 'axios';
 // 把axios写入Vue的原型对象,方便后面调用
