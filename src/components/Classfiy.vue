@@ -7,19 +7,30 @@
             </div>
         </header>
         <div id="con">
-            <cube-scroll-nav>
-                <cube-scroll-nav-panel v-for="item in list" :key="item.pid" :label="item.name">
-                    <ul>
-                    <li v-for="small in item.plist" :key="small.pid">
-                        <div>
-                            <!-- <img :src="food.icon"> -->
-                            <p>{{small.pid}}</p>
-                        </div>
-                    </li>
+            <div class="c_top">
+                <cube-scroll
+                ref="scroll"
+                direction="horizontal"
+                class="horizontal-scroll-list-wrap">
+                    <ul class="list-wrapper">
+                        <li v-for="item in list" class="list-item" :class="{'active':item.status}" :key="item.gid">{{ item.name }}</li>
                     </ul>
-                </cube-scroll-nav-panel>
-            </cube-scroll-nav>
+                </cube-scroll>
+            </div>
+            <div class="c_cen">
+                <div v-for="items in lists" :key="items.pid">
+                    <img :src="items.imgs">
+                    <ul>
+                        <li v-for="item in items.plist" :key="item.pid">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <footer>
+            我是有底线的
+        </footer>
     </div>
 </template>
 
@@ -27,13 +38,18 @@
 export default {
     data(){
         return {
-            list:[]
+            list:[],
+            lists:[]
         }
     },
     created(){
-        this.$axios.get('ygapi?method=getnewplatformproductcategoryuriservice&platForm=wap&timestamp=1547042740317&sign=f548b0f73eff9cff2228c8040e1af542').then(res=>{
+        this.$axios.get('../plugins/list.json').then(res=>{
             this.list = res.data.list;
             console.log(this.list);
+        })
+        this.$axios.get('../plugins/lists.json').then(res=>{
+            this.lists = res.data;
+            console.log(this.lists);
         })
     }
 }
@@ -42,7 +58,51 @@ export default {
 <style lang="scss" scoped>
     // 内容区域
     #con{
-        margin-top:2.75rem;
+        margin: 3.75rem auto 3.125rem;
+        .c_top{
+            ul {
+                width: 32.5rem;
+                height: 3.1875rem;
+                border-bottom:0.0625rem solid #efefef;
+                .active{
+                    border-bottom:0.125rem solid #222;
+                    font-weight: 900;
+                }
+                li{
+                    width: 4.625rem;
+                    height: 3.125rem;
+                    line-height: 3.125rem;
+                    float: left;
+                    text-align: center;
+                    margin-right: 1.25rem;
+                    margin-left:0.625rem;
+                }
+            }
+        }
+        .c_cen{
+            width:17.75rem;
+            margin:0.625rem auto 0;
+            img{
+                width: 17.75rem;
+                height: 3.5rem;
+                margin-bottom:0.625rem;
+            }
+            ul{
+                li{
+                    width: 33.3%;
+                    float: left;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    word-break: keep-all;
+                    text-overflow: ellipsis;
+                    font-size: 0.875rem;
+                    color: #222;
+                    text-align: center;
+                    line-height: 1.25rem;
+                    padding: 0.9375rem 0;
+                }
+            }
+        }
     }
     // 头部
     .header{
@@ -89,5 +149,8 @@ export default {
                 background-size: 14px;
             }
         }
+    }
+    footer{
+        height: 4.375rem;
     }
 </style>
