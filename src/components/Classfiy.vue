@@ -2,7 +2,7 @@
     <div>
         <header class="header">
             <div class="header_input">
-                <input class="search-input" id="subcategory_search_input" name="keyword" type="search" maxlength="30" placeholder="药品、品牌或症状"/>
+                <input class="search-input" id="subcategory_search_input" name="keyword" readonly="readonly" type="search" maxlength="30" placeholder="药品、品牌或症状" @click="goto('Search')"/>
                 <span id="search-btn" class="_new_magnifier"></span>
             </div>
         </header>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+// import List from '../assets/json/list.json';
+// import Lists from '../assets/json/lists.json';
 export default {
     data(){
         return {
@@ -42,15 +44,22 @@ export default {
             lists:[]
         }
     },
+    methods:{
+        goto(name){
+            this.$router.push(name);
+        }
+    },
     created(){
-        this.$axios.get('../plugins/list.json').then(res=>{
+        this.$axios.get('../assets/json/list.json').then(res=>{
             this.list = res.data.list;
             console.log(this.list);
         })
-        this.$axios.get('../plugins/lists.json').then(res=>{
+        this.$axios.get('../assets/json/lists.json').then(res=>{
             this.lists = res.data;
             console.log(this.lists);
         })
+        // this.list = List;
+        // this.lists = Lists;
     }
 }
 </script>
