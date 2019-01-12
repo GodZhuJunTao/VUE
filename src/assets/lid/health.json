@@ -1,0 +1,25 @@
+[{
+    "img":"../img/sb.png",
+    "corporeity":"步数",
+    "facility":"绑定手环",
+    "tiem":"0"
+},
+{
+    "img":"../img/xy.png",
+    "corporeity":"血压",
+    "facility":"--",
+    "tiem":"--"
+},
+{
+    "img":"../img/xt.png",
+    "corporeity":"血糖",
+    "facility":"--",
+    "tiem":"--"
+},
+{
+    "img":"../img/tz.png",
+    "corporeity":"体重",
+    "facility":"--",
+    "tiem":"--"
+    
+}]
