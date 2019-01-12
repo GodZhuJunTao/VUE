@@ -24,10 +24,35 @@ Vue.use(Cube);
 import 'mint-ui/lib/style.css';
 // import 'cube-ui/lib/style.css';
 import './sass/common.scss';
+import './plugins/icon/iconfont.css';
 
 import axios from 'axios';
 // 把axios写入Vue的原型对象,方便后面调用
 Vue.prototype.$axios = axios;
+
+// loading效果
+// 利用axios拦截器全局设置
+// http响应拦截器
+import {Indicator} from 'mint-ui';
+axios.interceptors.request.use(config =>{
+    Indicator.open({
+        text: '请稍等...',
+        spinnerType: 'snake'
+    });
+    return config;
+},error=>{
+    Indicator.close();
+    return Promise.reject(error)
+})
+axios.interceptors.response.use(data=>{
+    // 响应成功关闭loading
+    Indicator.close();
+    return data;
+},error=>{
+    Indicator.close();
+    return Promise.reject(error)
+})
+
 export default {
     data(){
         return {

@@ -75,7 +75,7 @@ export default {
 };
 </script>
 
-<style>
+<style  scoped>
 .mint-button {
   width: 100%;
 }

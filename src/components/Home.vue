@@ -5,7 +5,7 @@
                 <h2>送至 <span>广州市天河区慧通产业园</span></h2>
             </div>
             <div class="header-search">
-                <input type="search" name="searchinput" placeholder="药品/症状/品牌" autocomplete="off" readonly="readonly" class="search-input">
+                <input type="search" name="searchinput" placeholder="药品/症状/品牌" autocomplete="off" readonly="readonly" class="search-input" @click="goto('Search')"/>
             </div>
         </div>
         <div id="carousel">
@@ -140,6 +140,16 @@ export default {
                 }  
             ],
             list:[]
+        }
+    },
+    methods:{
+        goto(name,id){
+            // 编程式导航:获取router实例
+            let obj = {name};
+            if(id){
+                obj.params = {id};
+            }
+            this.$router.push(obj);
         }
     },
     created(){
