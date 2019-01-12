@@ -11,6 +11,7 @@ import Cart from 'com/Cart';
 import Mine from 'com/Mine';
 import Login from 'com/Login';
 import Search from 'com/Search';
+import Datalist from 'com/Datalist';
 const routes = [
     {path:'/',redirect:{name:'Home'}},
     {name:'Home',path:'/home',component:Home},
@@ -20,6 +21,7 @@ const routes = [
     {name:'Mine',path:'/mine',component:Mine},
     {name:'Login',path:'/login',component:Login},
     {name:'Search',path:'/search',component:Search},
+    {name:'Datalist',path:'/datalist',component:Datalist},
 ]
 let router = new VueRouter({
     routes

@@ -27,6 +27,10 @@ fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:non
         display: inline-block;
     }
 }
+// Datalist下面的h2
+.cube-scroll-nav-panel-title{
+    display: none;
+}
 // home组件下的轮播
 #carousel{
     margin-top: 5.3125rem;
