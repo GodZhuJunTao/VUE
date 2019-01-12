@@ -24,7 +24,7 @@
           <span class="code">获取验证码</span>
         </mt-field>
         <mt-field label="验证码" placeholder="验证码" type="url"></mt-field>
-        <mt-field label="推广码" placeholder="选填" type="number"  v-model="number"></mt-field>
+        <mt-field label="推广码" placeholder="选填" type="number" v-model="number"></mt-field>
         <p class="p-code">
           <a href class="p-a">收不到验证码？获取语音验证</a>
         </p>
@@ -40,14 +40,17 @@
         </div>
       </mt-tab-container-item>
 
-
-
       <mt-tab-container-item id="2">
         <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
         <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
         <mt-button type="primary">登录</mt-button>
-        <div class="box2"><a href="" class="a1">忘记密码?</a></div>
-        <p>还没账号?<a href="" class="a2">手机注册</a></p>
+        <div class="box2">
+          <a href class="a1">忘记密码?</a>
+        </div>
+        <p>
+          还没账号?
+          <a href class="a2">手机注册</a>
+        </p>
         <img src="../img/huo.jpg" alt>
         <div class="wx-d">
           <img src="../img/wx.png" alt class="wx">
@@ -63,10 +66,10 @@ export default {
   data() {
     return {
       selected: "",
-      username:"",
-      password:"",
-      phone:"",
-      number:""
+      username: "",
+      password: "",
+      phone: "",
+      number: ""
     };
   }
 };
@@ -130,23 +133,21 @@ export default {
 }
 .wx-d {
   text-align: center;
- 
 }
 .wx {
   width: 30px;
- 
 }
 .is-selected .mint-tab-item-label {
   position: relative;
   color: #58bc58;
 }
-.a1{
-    float:right;
+.a1 {
+  float: right;
 }
-.box2{
-    height: 16px;
+.box2 {
+  height: 16px;
 }
-.a2{
-    color: coral;
+.a2 {
+  color: coral;
 }
 </style>
