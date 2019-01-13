@@ -59,8 +59,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cube-scroll-nav-panel{
+    h2 {
+        font-size: 1.625rem;
+        color: #58bc58;
+        text-align: center;
+        display: none;
+    }
     >img{
         margin-top:2.5rem;
         width: 100%;
@@ -159,12 +165,7 @@ export default {
         } 
     }
 }
-h2 {
-  font-size: 1.625rem;
-  color: #58bc58;
-  text-align: center;
-  display: none;
-}
+
 
 #cen{
     height: 100%;

@@ -1,240 +1,225 @@
 <template>
-  <div style="padding-bottom:50px;">
-    <div class="top">
-      <img src="../img/sz.png" alt style="float:right;padding-right:10px;">
-      <span class="head">
-        <i class="head-i">
-          <img src="../img/tx.png" alt>
-        </i>
-      </span>
-      <span class="enter">登录/注册</span>
-      <p class="box">
-        <span>
-          <img src="../img/vip.png" alt class="i-1">会员卡
-        </span>
-        <i>
-          <img src="../img/kq.png" alt class="i-2">卡券
-        </i>
-        <i>
-          <img src="../img/tk.png" alt class="i-2">关注
-        </i>
-        <i>
-          <img src="../img/gz.png" alt class="i-2">积分
-        </i>
-        <i>
-          <img src="../img/tm.png" alt class="i-2">条码
-        </i>
-      </p>
+    <div style="padding-bottom:3.125rem;">
+        <div class="top">
+            <img src="../img/sz.png" alt style="float:right;padding-right:0.625rem;">
+            <span class="head">
+                <i class="head-i">
+                    <img src="../img/tx.png" alt>
+                </i>
+            </span>
+            <span class="enter" @click="goto('login')">登录/注册</span>
+            <p class="box">
+            <span>
+                <img src="../img/vip.png" alt class="i-1">会员卡
+            </span>
+            <i>
+                <img src="../img/kq.png" alt class="i-2">卡券
+            </i>
+            <i>
+                <img src="../img/tk.png" alt class="i-2">关注
+            </i>
+            <i>
+                <img src="../img/gz.png" alt class="i-2">积分
+            </i>
+            <i>
+                <img src="../img/tm.png" alt class="i-2">条码
+            </i>
+            </p>
+        </div>
+        <h2 class="h-noe">
+            <span class="s-one">我的订单</span>
+            <span class="s-two">全部</span>
+        </h2>
+        <ul class="ul-i">
+            <li v-for="(item,i) in draw" :key="i" class="li-i">
+                <img :src="item.img">
+                <span>{{item.term}}</span>
+            </li>
+        </ul>
+        <div style="height: 1.875rem;">
+            <h2 class="h-two">
+                <span class="s-three">健康档案</span>
+                <span class="s-four">全部</span>
+            </h2>
+        </div>
+
+        <div id="mine">
+            <cube-scroll ref="scroll" direction="horizontal" class="horizontal-scroll-list-wrap">
+                <ul class="list-wrapper">
+                    <li class="list-item" v-for="(item,i) in stamina" :key="i">
+                        <i>
+                            <img :src="item.img">
+                        </i>
+                        <span>{{item.corporeity}}</span>
+                        <br>
+                        <span>{{item.facility}}</span>
+                        <br>
+                        <span>{{item.tiem}}</span>
+                        <br>
+                    </li>
+                </ul>
+            </cube-scroll>
+        </div>
+        <div>
+            <ul>
+                <li class="point-i" v-for="(item,i) in point" :key="i">
+                    {{item.gps}}
+                    <span>
+                    {{item.phone}}&nbsp;&nbsp;
+                    <img :src="item.img" alt>
+                    </span>
+                </li>
+            </ul>
+        </div>
     </div>
-    <h2 class="h-noe">
-      <span class="s-one">我的订单</span>
-      <span class="s-two">全部</span>
-    </h2>
-    <ul class="ul-i">
-      <li v-for="(item,i) in draw" :key="i" class="li-i">
-        <img :src="item.img">
-        <span>{{item.term}}</span>
-      </li>
-    </ul>
-    <div style="height: 30px;">
-      <h2 class="h-two">
-      <span class="s-three">健康档案</span>
-      <span class="s-four">全部</span>
-    </h2>
-    </div>
-    
-    <div>
-          <cube-scroll ref="scroll" direction="horizontal" class="horizontal-scroll-list-wrap">
-      <ul class="list-wrapper">
-        <li class="list-item" v-for="(item,i) in stamina" :key="i">
-          <i><img :src="item.img"/></i>
-          <span>{{item.corporeity}}</span><br/>
-          <span>{{item.facility}}</span><br/>
-           <span>{{item.tiem}}</span><br/>
-        </li>
-      </ul>
-    </cube-scroll>
-    </div>
-    <div>
-      <ul>
-        <li class="point-i" v-for="(item,i) in point" :key="i">{{item.gps}}<span>{{item.phone}}&nbsp;&nbsp;<img :src="item.img" alt=""></span></li>
-      </ul>
-    </div>
-  </div>
 </template>
 
 <script>
 import datall from "../assets/lid/data";
 import myhealth from "../assets/lid/health";
 export default {
-  data() {
-
-    return {
-      draw: [],
-      stamina: [],
-      point:[{"gps":"收货地址","img":"../img/jt.jpg"},{"gps":"积分商城","img":"../img/jt.jpg"},{"gps":"在线客服","img":"../img/jt.jpg"},{"gps":"健康管家","phone":"400606311","img":"../img/jt.jpg"},{"gps":"意见反馈","img":"../img/jt.jpg"}]
-    };
-  },
-  created() {
-    this.draw = datall;
-    this.stamina = myhealth;
-    this.point=mypoint;
-  }
+    data() {
+        return {
+            draw: [],
+            stamina: [],
+            point: [
+                { gps: "收货地址", img: "../img/jt.jpg" },
+                { gps: "积分商城", img: "../img/jt.jpg" },
+                { gps: "在线客服", img: "../img/jt.jpg" },
+                { gps: "健康管家", phone: "400606311", img: "../img/jt.jpg" },
+                { gps: "意见反馈", img: "../img/jt.jpg" }
+            ]
+        };
+    },
+    methods:{
+        goto(path){
+            this.$router.push(path);
+        }
+    },
+    created() {
+            this.draw = datall;
+            this.stamina = myhealth;
+            // this.point = mypoint;
+    }
 };
 </script>
 
 <style lang="scss" scoped>
 .top {
-  background: url(../img/bj.jpg) repeat-y;
-  height: 150px;
-  .head {
-    
-    margin-top: 30px;
-    margin-left: 10px;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    border-radius: 50%;
-    text-align: center;
-    padding-top: 5px;
-  }
-  .head-i {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: #eeeff4;
-    border-radius: 50%;
-  }
-  .enter {
-    color: #fff;
-    margin-left: 10px;
-  }
-  .box {
-    display: flex;
-    justify-content: center;
-    margin: 20px 10px 0 10px;
-    border-radius: 10px 10px 0 0;
-    background: url(../img/bj1.jpg) repeat-y;
-    height: 50px;
-    span {
-      display: inline-block;
-      width: 42px;
-      height: 50px;
-      line-height: 50px;
-      margin-right: 24px;
+    background: url(../img/bj.jpg) repeat-y;
+    height: 9.375rem;
+    .head {
+        margin-top: 1.875rem;
+        margin-left: 0.625rem;
+        display: inline-block;
+        width: 3.125rem;
+        height: 3.125rem;
+        background: #fff;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 0.3125rem;
+    }
+    .head-i {
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: #eeeff4;
+        border-radius: 50%;
+        }
+    .enter {
+        color: #fff;
+        margin-left: 0.625rem;
+    }
+    .box {
+        display: flex;
+        justify-content: center;
+        margin: 1.25rem 0.625rem 0 0.625rem;
+        border-radius: 0.625rem 0.625rem 0 0;
+        background: url(../img/bj1.jpg) repeat-y;
+        height: 3.125rem;
+        span {
+            display: inline-block;
+            width: 2.625rem;
+            height: 3.125rem;
+            line-height: 3.125rem;
+            margin-right: 1.5rem;
 
-      color: #eac47b;
-      font-size: 10px;
-      .i-1 {
-        width: 12px;
-      }
+            color: #eac47b;
+            font-size: 0.625rem;
+            .i-1 {
+                width: 0.75rem;
+            }
+        }
+        i {
+            display: inline-block;
+            width: 1.875rem;
+            font-size: 0.625rem;
+            color: #eac47b;
+            margin: 0.5625rem 0.5625rem 0 0.3125rem;
+            .i-2 {
+                width: 1.375rem;
+            }
+        }
     }
-    i {
-      display: inline-block;
-      width: 30px;
-      font-size: 10px;
-      color: #eac47b;
-      margin: 9px 9px 0 5px;
-      .i-2 {
-        width: 22px;
-      }
-    }
-  }
 }
 .h-noe {
-  margin: 15px 10px 30px 10px;
-  .s-noe {
-    float: left;
-  }
-  .s-two {
-    float: right;
-    padding-right: 20px;
-    background: url(../img/jt1.png) no-repeat right;
-  }
+    margin: 0.9375rem 0.625rem 1.875rem 0.625rem;
+    .s-noe {
+        float: left;
+    }
+    .s-two {
+        float: right;
+        padding-right: 1.25rem;
+        background: url(../img/jt1.png) no-repeat right;
+    }
 }
 .ul-i {
-  height: 150px;
-  border-bottom: 1px solid #e8e8e8;
-  margin: 0 10px 0 10px;
-  .li-i {
-    padding:0px 65px 28px 23px;
-    width: 75px;
-    float: left;
-    span {
-      display: block;
-      width: 75px;
-      font-size: 12px;
-      margin-top: 5px;
+    height: 9.375rem;
+    border-bottom: 0.0625rem solid #e8e8e8;
+    margin: 0 0.625rem 0 0.625rem;
+    .li-i {
+        // padding: 0rem 4.0625rem 1.75rem 1.4375rem;
+        // width: 4.6875rem;
+        width: 25%;
+        float: left;
+        text-align: center;
+        margin-top:0.9375rem;
+        span {
+            display: block;
+            // width: 4.6875rem;
+            font-size: 0.75rem;
+            margin-top: 0.3125rem;
+        }
     }
-  }
 }
 .h-two {
-  margin: 15px 10px 15px 10px;
-  .s-three {
-    float: left;
-  }
-  .s-four {
-    float: right;
-    padding-right: 20px;
-    background: url(../img/jt1.png) no-repeat right;
-  }
-}
-.horizontal-scroll-list-wrap {
-  height: 150px;
-  border-bottom: 1px solid #e8e8e8;
-  margin: 0 10px 0 10px;
-  .cube-scroll-content{
-    display: inline-block;
+    margin: 0.9375rem 0.625rem 0.9375rem 0.625rem;
+    .s-three {
+        float: left;
     }
-  .list-wrapper{
-    white-space: nowrap
-    }
-  .list-item{
-    display: inline-block;
-    height: 130px;
-    width: 120px;
-    margin: 3px 5px 0 5px;
-    border-radius: 10px;
-    background:#ECEBF0;
-      img{
-        display: block;
-        width: 20px;
-        height: 20px;
-      }
-        i{
-          display:block;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          background: #959CF7;
-          margin: 10px 0 10px 10px ;
-          padding: 5px 0 0 5px;
-        }
-        span{
-          display:block;
-          font-size:12px;
-          padding-left: 10px;
-        }
+    .s-four {
+        float: right;
+        padding-right: 1.25rem;
+        background: url(../img/jt1.png) no-repeat right;
     }
 }
-.point-i{
-  font-size:12px;
-  line-height: 45px;
-  border-bottom:1px solid #E8E8E8;
-  margin: 0 10px 0 10px; 
-  color: #4B4B4B;
-  span{
-    font-size:12px;
-  line-height: 45px;
-  color: #4B4B4B;
-  float:right;
-  
-    img{
-      width: 8px;
-      height: 8px;
+
+.point-i {
+    font-size: 0.75rem;
+    line-height: 2.8125rem;
+    border-bottom: 0.0625rem solid #e8e8e8;
+    margin: 0 0.625rem 0 0.625rem;
+    color: #4b4b4b;
+    span {
+        font-size: 0.75rem;
+        line-height: 2.8125rem;
+        color: #4b4b4b;
+        float: right;
+
+        img {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
-  }
-  
 }
 </style>

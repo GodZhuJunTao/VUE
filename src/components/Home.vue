@@ -164,8 +164,8 @@ export default {
         goto(name,id){
             // 编程式导航:获取router实例
             let obj = {name};
-            id = id.split('=')[1];
             if(id){
+                id = id.split('=')[1];  
                 obj.params = {id};
             }
             this.$router.push(obj);
@@ -261,7 +261,7 @@ export default {
             }
             dd{
                 ul{
-                    margin-top:16px;
+                    margin-top:1rem;
                     position: absolute;
                     width: 75%;
                     height: 3.5rem;
@@ -272,8 +272,8 @@ export default {
                     color: #4d4e58;
                     font-size: 0.8125rem;
                     padding-left: 2.5%;
-                    top:-16px;
-                    left:76px;
+                    top:-1rem;
+                    left:4.75rem;
                     li{
                         overflow: hidden;
                         word-break: keep-all;
