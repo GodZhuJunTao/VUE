@@ -13,11 +13,7 @@ import Login from 'com/Login';
     import Em from 'com/login/Em';
     import Mima from 'com/login/Mima';
 import Search from 'com/Search';
-<<<<<<< HEAD
 import Detail from 'com/Detail';
-=======
-import Datalist from 'com/Datalist';
->>>>>>> 992205baa93813f00cf29aa158ebeaa870f8ee45
 const routes = [
     {path:'/',redirect:{name:'Home'}},
     {name:'Home',path:'/home',component:Home},
@@ -52,11 +48,7 @@ const routes = [
         ]
     },
     {name:'Search',path:'/search',component:Search},
-<<<<<<< HEAD
     {name:'Detail',path:'/detail',component:Detail},
-=======
-    {name:'Datalist',path:'/datalist',component:Datalist},
->>>>>>> 992205baa93813f00cf29aa158ebeaa870f8ee45
 ]
 let router = new VueRouter({
     routes
