@@ -31,7 +31,26 @@
                 <h3>上拉查看商品详情</h3>
             </div>
             <div>
+                <mt-navbar v-model="selected">
+                        <mt-tab-item id="1">图片详情</mt-tab-item>
+                        <mt-tab-item id="2">说明</mt-tab-item>
+                        <mt-tab-item id="3">评论</mt-tab-item>
+                        </mt-navbar>
 
+                        <!-- tab-container -->
+                        <mt-tab-container v-model="selected">
+                        <mt-tab-container-item id="1">
+                            <ul clss="details">
+                                <li  v-for="(item,i) in goodsImages" :key="i"><img :src="item.images" alt=""></li>
+                            </ul>
+                        </mt-tab-container-item>
+                        <mt-tab-container-item id="2">
+                            
+                        </mt-tab-container-item>
+                        <mt-tab-container-item id="3">
+                            
+                        </mt-tab-container-item>
+                </mt-tab-container>
             </div>
         </div>
     </div>
@@ -39,14 +58,19 @@
 
 <script>
 import mycnzzs from '../assets/lid/more';
+import mygoodsImages from '../assets/lid/more';
 export default {
     data(){
+
         return{
-           cnzzs:[]
+           cnzzs:[],
+           selected:"1",
+           goodsImages:[]
         }
     },
     created(){
         this.cnzzs=mycnzzs.cnzzs;
+        this.goodsImages=mygoodsImages.goodsImages
         console.log(this.cnzzs);
         
     }
@@ -166,5 +190,6 @@ export default {
             
         }
     }
+
 </style>
 

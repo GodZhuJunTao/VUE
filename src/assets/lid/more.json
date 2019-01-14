@@ -75,19 +75,19 @@
     ],
     "goodsImages": [
         {
-            "images": "/static/image/goods//201806/2959db314456b18a9e5f7dd199b95f67.jpg"
+            "images": "http://img.zdfei.com//static/image/goods//201806/2959db314456b18a9e5f7dd199b95f67.jpg"
         },
         {
-            "images": "/static/image/goods//201806/cd02ac8043acb24323a0a377df3a7737.jpg"
+            "images": "http://img.zdfei.com//static/image/goods//201806/cd02ac8043acb24323a0a377df3a7737.jpg"
         },
         {
-            "images": "/static/image/goods//201806/180a0312328f53eb069094e6a114dcf7.jpg"
+            "images": "http://img.zdfei.com//static/image/goods//201806/180a0312328f53eb069094e6a114dcf7.jpg"
         },
         {
-            "images": "/static/image/goods//201806/fe45514a7593cdc1dce3c29115c9a8f9.jpg"
+            "images": "http://img.zdfei.com//static/image/goods//201806/fe45514a7593cdc1dce3c29115c9a8f9.jpg"
         },
         {
-            "images": "/static/image/goods//201806/f605897d30b1bcb4f9c873d71d651849.jpg"
+            "images": "http://img.zdfei.com//static/image/goods//201806/f605897d30b1bcb4f9c873d71d651849.jpg"
         }
     ],
     "rxCanAddCart": "1",
