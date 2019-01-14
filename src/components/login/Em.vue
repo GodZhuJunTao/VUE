@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom:70px;">
         <mt-tab-container>
             <mt-tab-container-item>
                 <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="phone">
@@ -53,7 +53,7 @@ export default {
         display: inline-block;
         background: #aaaaaa;
         color: #fff;
-        font-size: 1rem;
+        font-size: 16px;
         line-height: 2.8125rem;
         width: 6.25rem;
         height: 2.8125rem;
@@ -91,12 +91,13 @@ export default {
     }
     .p-a {
         color: #61b8b2;
-        font-size: 1rem;
+        font-size: 16px;
     }
     .hint {
-        height: 15.625rem;
+        height: 10.625rem;
         padding-top: 1.875rem;
         padding-left: 0.625rem;
+        font-size:16px; 
     }
     .hint-a {
         color: #6793c2;
