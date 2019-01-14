@@ -1,0 +1,127 @@
+{
+    "message": "数据请求成功",
+    "statusCode": "1",
+    "cnzzs": [
+        {
+            "id": "162",
+            "oldPrice": "",
+            "price": "23.80",
+            "abbreviation_picture": "http://img.zdfei.com/static/image/goods//201712/b514fe446cf23302233bfbbd7796fc2a.jpg",
+            "short_name": "百灵鸟 咳速停胶囊"
+        },
+        {
+            "id": "267",
+            "oldPrice": "",
+            "price": "24.00",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201808/d387807127ac943cd0bedd73b9510dbf.jpg",
+            "short_name": "诺金 喉舒宁片"
+        },
+        {
+            "id": "380",
+            "oldPrice": "",
+            "price": "22.00",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/upload/image/201412/0dd3e6d4-416e-4125-a180-7bd6dbbf28d4-medium350x350.jpg",
+            "short_name": "太极 感冒清热颗粒"
+        },
+        {
+            "id": "394",
+            "oldPrice": "",
+            "price": "15.00",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201711/4321bc1408ce5b89546a12e0b43d6b48.jpg",
+            "short_name": "太极 桑菊感冒丸"
+        },
+        {
+            "id": "396",
+            "oldPrice": "",
+            "price": "12.50",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201711/1509a3cfcc13288f9fdd543e6bf2fd24.jpg",
+            "short_name": "同仁堂 桑菊感冒片"
+        },
+        {
+            "id": "415",
+            "oldPrice": "",
+            "price": "14.50",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201712/2b078b8649beec9a1bd096b36e915c00.jpg",
+            "short_name": "同仁堂 感冒清热颗粒"
+        },
+        {
+            "id": "417",
+            "oldPrice": "",
+            "price": "23.80",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201711/02c9effe161f0b726557791aa6c04db7.jpg",
+            "short_name": "欧意 感冒清热软胶囊"
+        },
+        {
+            "id": "419",
+            "oldPrice": "",
+            "price": "23.80",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201712/7d29c6627212747bdf3bebd5ed80a098.jpg",
+            "short_name": "百灵鸟 金感胶囊"
+        },
+        {
+            "id": "457",
+            "oldPrice": "",
+            "price": "25.00",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201712/79e3caa83c63f9176e1241aad04df7ea.jpg",
+            "short_name": "维威 银翘解毒颗粒"
+        },
+        {
+            "id": "604",
+            "oldPrice": "",
+            "price": "14.00",
+            "abbreviation_picture": "http://img.zdfei.com//static/image/goods//201711/a4dc60fb54d0fbe167fd933a6b7fe3dd.jpg",
+            "short_name": "佛慈 银翘解毒丸"
+        }
+    ],
+    "goodsImages": [
+        {
+            "images": "/static/image/goods//201806/2959db314456b18a9e5f7dd199b95f67.jpg"
+        },
+        {
+            "images": "/static/image/goods//201806/cd02ac8043acb24323a0a377df3a7737.jpg"
+        },
+        {
+            "images": "/static/image/goods//201806/180a0312328f53eb069094e6a114dcf7.jpg"
+        },
+        {
+            "images": "/static/image/goods//201806/fe45514a7593cdc1dce3c29115c9a8f9.jpg"
+        },
+        {
+            "images": "/static/image/goods//201806/f605897d30b1bcb4f9c873d71d651849.jpg"
+        }
+    ],
+    "rxCanAddCart": "1",
+    "goods": {
+        "commentNum": "1",
+        "spec": "0.5g*48片",
+        "id": "51539",
+        "isFindGoods": "0",
+        "hasInstruction": "1",
+        "goodsno": "0102472",
+        "limitNum": "0",
+        "goods_name": "康美尚 四季感冒片（薄膜衣片） 0.5g*48片",
+        "main_title": "清热解表。用于四季风寒感冒引起的发热头痛，鼻流清涕，咳嗽口干，咽喉疼痛，恶心厌食。",
+        "type": "1",
+        "discount": "",
+        "manu_name": "江西华太药业有限公司"
+    },
+    "goodsPrice": {
+        "isO2O": "0",
+        "oldPrice": "",
+        "stock": "321",
+        "price": "23.90",
+        "shelfStatus": "1"
+    },
+    "hdtws": [],
+    "cxtws": [
+        {
+            "cx": "订单满99免运费"
+        }
+    ],
+    "specs": [
+        {
+            "spec": "0.5g*48片",
+            "id": "51539"
+        }
+    ]
+}
