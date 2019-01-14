@@ -1,192 +1,210 @@
 <template>
-    <div style="padding-bottom:50px;">
+    <div style="margin-bottom:50px;">
+        <div class="top"><span class="img-noe"><img src="../img/jtou.png" alt=""></span><span class="img-two" @click.native="goto"><img src="../img/gd.png" @click.native="goto"></span></div>
+        <mt-swipe>
+            <mt-swipe-item v-for="(item,idx) in imgs" :key="idx" @click.native="goto"><img :src="'http://img.zdfei.com/'+item.images" alt=""></mt-swipe-item>
+        </mt-swipe>
+        <div style="border-bottom:1px solid #ECECEC;margin:0 10px 0 10px;">
+                <p class="p-noe">{{goods.goods_name}}<img src="../img/oct.jpg" class="img-therr"></p>
+                <span class="s-noe">{{goods.spec}}</span>
+                <span class="s-two">￥{{price}}</span>
+        </div>
+        <div class="center">
+            <p><span>功效</span>{{goods.main_title}}<img src="../img/gd1.png"><br/><span>厂家</span>{{goods.manu_name}}</p>
+            <p><span>规格</span>{{goods.spec}}<img src="../img/gd1.png"></p>
+        </div>
+        <div class="back"></div>
+        <div class="img-four"><img src="../img/cn.jpg" alt=""></div>
         <div>
-            <div class="top"><span class="img-noe"><img src="../img/jtou.png" alt=""></span><span class="img-two"><img src="../img/gd.png" alt=""></span></div>
-            <mt-swipe :auto="0">
-                    <mt-swipe-item><img src="../img/g1.jpg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../img/g2.jpg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../img/g3.jpg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../img/g4.jpg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../img/g5.jpg" alt=""></mt-swipe-item>
-            </mt-swipe>
-            <div style="border-bottom:1px solid #ECECEC;margin:0 10px 0 10px;">
-                    <p class="p-noe">康美尚四季感冒片(薄膜衣片)<img src="../img/oct.jpg" class="img-therr"></p>
-                    <span class="s-noe">0.5g*48片</span>
-                    <span class="s-two">￥23.90</span>
-            </div>
-            <div class="center">
-                <p><span>功效</span>&nbsp;清热解表。用于四季寒风感冒引起的发热...<img src="../img/gd1.png"><br/><span>厂家</span>江西华太药业有限公司</p>
-                <p><span>规格</span>&nbsp;0.5*48片<img src="../img/gd1.png"></p>
-            </div>
-            <div class="back"></div>
-            <div class="img-four"><img src="../img/cn.jpg" alt=""></div>
-            <div>
-               <cube-scroll  ref="scroll"  direction="horizontal" class="horizontal-scroll-list-wrap">
-                    <ul class="list-wrapper">
-                            <li  class="list-item" v-for="(item,i) in cnzzs" :key="i"><img :src="item.abbreviation_picture" alt=""><span>{{item.short_name}}</span><span style="color:red;">{{item.price}}</span></li>
-                    </ul>
-                </cube-scroll>
-            </div>
-            <div class="bottom">
-                <h3>上拉查看商品详情</h3>
-            </div>
-            <div>
-                <mt-navbar v-model="selected">
-                        <mt-tab-item id="1">图片详情</mt-tab-item>
-                        <mt-tab-item id="2">说明</mt-tab-item>
-                        <mt-tab-item id="3">评论</mt-tab-item>
-                        </mt-navbar>
+            <cube-scroll  ref="scroll"  direction="horizontal" class="horizontal-scroll-list-wrap">
+                <ul class="list-wrapper">
+                    <li class="list-item" v-for="item in cnzzs" :key="item.id"><img :src="'http://img.zdfei.com/'+item.abbreviation_picture"><span>{{item.short_name}}</span><br/><span style="color:red;">￥{{item.price}}</span></li>
+                </ul>
+            </cube-scroll>
+        </div>
+        <div class="bottom">
+            <h3>上拉查看商品详情</h3>
+        </div>
+        <div>
+            <mt-navbar v-model="selected">
+                <mt-tab-item id="1">图片详情</mt-tab-item>
+                <mt-tab-item id="2">说明</mt-tab-item>
+                <mt-tab-item id="3">评论</mt-tab-item>
+                </mt-navbar>
 
-                        <!-- tab-container -->
-                        <mt-tab-container v-model="selected">
-                        <mt-tab-container-item id="1">
-                            <ul clss="details">
-                                <li  v-for="(item,i) in goodsImages" :key="i"><img :src="item.images" alt=""></li>
-                            </ul>
-                        </mt-tab-container-item>
-                        <mt-tab-container-item id="2">
-                            
-                        </mt-tab-container-item>
-                        <mt-tab-container-item id="3">
-                            
-                        </mt-tab-container-item>
-                </mt-tab-container>
-            </div>
+                <!-- tab-container -->
+                <mt-tab-container v-model="selected">
+                <mt-tab-container-item id="1">
+                    <ul clss="details">
+                        <li  v-for="(item,i) in goodsImages" :key="i"><img :src="item.images"/></li>
+                    </ul>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="2">
+                    
+                </mt-tab-container-item>
+                <mt-tab-container-item id="3">
+                    
+                </mt-tab-container-item>
+            </mt-tab-container>
         </div>
     </div>
 </template>
 
 <script>
-import mycnzzs from '../assets/lid/more';
+// import mycnzzs from '../assets/lid/more';
 import mygoodsImages from '../assets/lid/more';
 export default {
     data(){
-
         return{
-           cnzzs:[],
-           selected:"1",
-           goodsImages:[]
+            cnzzs:[],
+            selected:"1",
+            goodsImages:[],
+            imgs:[],
+            goods:[],
+            price:'',
+        }
+    },
+    methods:{
+        goto(){
+            console.log(123);
+            // this.$router.go(-1);
         }
     },
     created(){
-        this.cnzzs=mycnzzs.cnzzs;
+        // this.cnzzs=mycnzzs.cnzzs;
         this.goodsImages=mygoodsImages.goodsImages
-        console.log(this.cnzzs);
-        
+        // console.log(this.cnzzs);
+        let id = this.$route.params.id;
+        // console.log(this.$route.params.id);
+        this.$axios.get('ygapi?method=goodsDetailWapMINAUse&platFormType=wap&goodsId=36&storeId=').then(res=>{
+            console.log(res.data);
+            this.imgs = res.data.goodsImages;
+            this.goods = res.data.goods;
+            this.price = res.data.goodsPrice.price;
+            this.cnzzs = res.data.cnzzs;
+        })
     }
 }
 </script>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
     .top{
-        margin: 10px 10px 10px 10px;
+        margin: 0.625rem 0.625rem 0.625rem 0.625rem;
         .img-noe{
             float: left;
             img{
                 display: block;
-                width: 25px;
+                width: 1.5625rem;
             }
         }
         .img-two{
             float:right;
+            display: block;
+            height: 25px;
             img{
-                 display: block;
-                width: 25px;
+                width: 1.5625rem;
+                z-index: 999;
             }
         }
     }
     .mint-swipe{
-        height: 250px;
+        height: 15.625rem;
         img{
             display: block;
-            height: 250px;
-            margin-left:35px; 
+            height: 15.625rem;
+            // margin-left:2.1875rem; 
         }
     }
     .p-noe{
-        margin: 0 38px 0 24px;
+        margin: 0 2.375rem 0 1.5rem;
         color: #2D2D2D;
-        font-size:20px;
-         .img-therr{
-             float: right;
-             display: inline-block;
-             width: 20px;
-         }
+        font-size:1.0625rem;
+        .img-therr{
+            float: right;
+            //  display: inline-block;
+            width: 1.25rem;
+        }
     }
     .s-noe{
-         margin: 10px 0 0 24px;
+        margin: 0.625rem 0 0 1.5rem;
         color: #2D2D2D;
-        font-size:20px;
+        font-size:1.25rem;
         display: block;
     }
     .s-two{
-        font-size:20px;
+        font-size:1.25rem;
         display: block;
         color: red;
-         margin: 10px 0 15px 24px;
+        margin: 0.625rem 0 0.9375rem 1.5rem;
     }
     .center{
-        margin:0 10px 0 10px;
+        margin:0 0.625rem 0 0.625rem;
         p{
-            border-bottom:1px solid #ECECEC; 
-            font-size: 12px;
-            line-height: 24px;
-            // height: 48px;
-            padding:10px 0 10px 0; 
+            border-bottom:0.0625rem solid #ECECEC; 
+            font-size: 0.75rem;
+            line-height: 1.5rem;
+            // height: 3rem;
+            padding:0.625rem 0 0.625rem 0; 
+            width: 100%;
+            overflow: hidden;
+            word-break: keep-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             span{
                 display: inline-block;
                 color:#909090;
-                padding-right:5px; 
+                padding-right:0.3125rem; 
             }
             img{
-                width: 20px;
+                width: 1.25rem;
                 float: right;
             }
         }
     }
     .back{
         background:#F7F7F7;
-        height: 15px;
+        height: 0.9375rem;
     }
     .img-four{
-        margin:40px 10px 20px 10px;
+        margin:2.5rem 0.625rem 1.25rem 0.625rem;
        
         img{
             display: block;
-        width: 350px;
+            // width: 21.875rem;
+            width: 100%;
         }
     }
     .cube-scroll-content{
-          display: inline-block;
-          .list-wrapper{
+        display: inline-block;
+        .list-wrapper{
             display: flex;
-        
-                .list-item{
-                    margin:3px 5px 3px 5px;
-                    float: left;
-                    width: 100px;
-                    height: 140px;
-                    display: inline-block;
-                    
-                    span{
-                        font-size:12px;
-                    }
-                    img{
-                        width: 100px;
-                        height: 100px;
-                    }
+            // white-space: nowrap;
+            .list-item{
+                margin:0.1875rem 0.3125rem 0.1875rem 0.3125rem;
+                // float: left;
+                width: 6.25rem;
+                height: 9.75rem;
+                display: inline-block;
+                
+                span{
+                    font-size:0.75rem;
                 }
-          }
+                img{
+                    width: 6.25rem;
+                    height: 6.25rem;
+                }
+            }
+        }
 
     }
   
     .bottom{
-        margin-top:40px;
+        margin-top:2.5rem;
         h3{
-            font-size:16px;
-            height: 40px;
+            font-size:1rem;
+            height: 2.5rem;
             text-align: center;
-            line-height: 40px;
+            line-height: 2.5rem;
             
         }
     }

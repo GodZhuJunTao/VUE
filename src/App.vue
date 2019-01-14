@@ -1,7 +1,7 @@
 <template>
     <div>
         <router-view/>
-        <mt-tabbar v-model="selected" fixed>
+        <mt-tabbar v-model="selected" fixed id="nav"> 
             <mt-tab-item :id="tab.name" v-for="tab in tabs" :key="tab.name" @click.native="goto(tab.path)">
                 <!-- <myicons :type="tab.icon" /> -->
                 <span :class="tab.icon"></span><br/>

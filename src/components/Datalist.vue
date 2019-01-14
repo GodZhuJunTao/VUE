@@ -2,9 +2,7 @@
     <cube-scroll-nav
     
     :data="datalist"
-    :current="current"
-    @change="changeHandler"
-    @sticky-change="stickyChangeHandler">
+    :current="current">
     <cube-scroll-nav-panel
         v-for="item in datalist"
         :key="item.category_name"
@@ -13,7 +11,7 @@
     >
         <img :src="'//img.zdfei.com/'+item.category_image_url">
         <ul>
-        <li v-for="items in item.goods" :key="items.goodsno">
+        <li v-for="items in item.goods" :key="items.goodsno" @click="goto('Detail',items.pid)">
             <img :src="'//img.zdfei.com'+items.image">
             <p><span class="otc"></span><span>{{items.name}}</span></p>
             <p>{{items.indication}}</p>
@@ -37,12 +35,14 @@ export default {
     };
   },
   methods: {
-    changeHandler(label) {
-      console.log("changed to:", label);
-    },
-    stickyChangeHandler(current) {
-      console.log("sticky-change", current);
-    }
+      goto(name,id){
+            // 编程式导航:获取router实例
+            let obj = {name};
+            if(id){
+                obj.params = {id};
+            }
+            this.$router.push(obj);
+      }
   },
   created() {
     let id = this.$route.params.id;
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .cube-scroll-nav-panel{
     h2 {
         font-size: 1.625rem;

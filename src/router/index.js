@@ -14,6 +14,7 @@ import Login from 'com/Login';
     import Mima from 'com/login/Mima';
 import Search from 'com/Search';
 import Detail from 'com/Detail';
+import Datalist from 'com/Datalist';
 const routes = [
     {path:'/',redirect:{name:'Home'}},
     {name:'Home',path:'/home',component:Home},
@@ -49,6 +50,7 @@ const routes = [
     },
     {name:'Search',path:'/search',component:Search},
     {name:'Detail',path:'/detail',component:Detail},
+    {name:'Datalist',path:'/datalist',component:Datalist},
 ]
 let router = new VueRouter({
     routes
