@@ -12,6 +12,47 @@ body>div{height: 100%;}
     background:rgba(0,0,0,.2)
 }
 fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
+// Mine下面的
+#mine{
+    .horizontal-scroll-list-wrap {
+        height: 9.375rem;
+        border-bottom: 0.0625rem solid #e8e8e8;
+        margin: 0 0.625rem 0 0.625rem;
+        .cube-scroll-content {
+            display: inline-block;
+        }
+        .list-wrapper {
+            white-space: nowrap;
+        }
+        .list-item {
+            display: inline-block;
+            height: 8.125rem;
+            width: 7.5rem;
+            margin: 0.1875rem 0.3125rem 0 0.3125rem;
+            border-radius: 0.625rem;
+            background: #ecebf0;
+            img {
+                display: block;
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+            i {
+                display: block;
+                width: 1.875rem;
+                height: 1.875rem;
+                border-radius: 50%;
+                background: #959cf7;
+                margin: 0.625rem 0 0.625rem 0.625rem;
+                padding: 0.3125rem 0 0 0.3125rem;
+            }
+            span {
+                display: block;
+                font-size: 0.75rem;
+                padding-left: 0.625rem;
+            }
+        }
+    }
+}
 // Classfiy下面的nav
 #con{
     .cube-scroll-content{
@@ -26,6 +67,10 @@ fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:non
         // float: left;
         display: inline-block;
     }
+}
+// Datalist下面的h2
+.cube-scroll-nav-panel-title{
+    display: none;
 }
 // home组件下的轮播
 #carousel{

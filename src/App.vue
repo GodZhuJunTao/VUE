@@ -3,8 +3,9 @@
         <router-view/>
         <mt-tabbar v-model="selected" fixed>
             <mt-tab-item :id="tab.name" v-for="tab in tabs" :key="tab.name" @click.native="goto(tab.path)">
-                <myicons :type="tab.icon" />
-                {{tab.text}}
+                <!-- <myicons :type="tab.icon" /> -->
+                <span :class="tab.icon"></span><br/>
+                <a class="cao"> {{tab.text}}</a>
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -12,9 +13,9 @@
 
 <script>
 import Vue from 'vue';
-// 引入并使用插件
-import myicons from '@/plugins/icons';
-Vue.use(myicons);
+// // 引入并使用插件
+// import myicons from '@/plugins/icons';
+// Vue.use(myicons);
 // 引入并使用Mintui
 import MinUi from 'mint-ui';
 Vue.use(MinUi);
@@ -59,27 +60,27 @@ export default {
             tabs:[
                 {
                     text:'首页',
-                    icon:'home',
+                    icon:'iconfont icon-shouye',
                     path:'/home',
                     name:'Home'
                 },{
                     text:'分类',
-                    icon:'three-bars',
+                    icon:'iconfont icon-fenlei1',
                     path:'/classfiy',
                     name:'Classfiy'
                 },{
                     text:'问药',
-                    icon:'hubot',
+                    icon:'iconfont icon-kefu',
                     path:'/robot',
                     name:'Robot'
                 },{
                     text:'清单',
-                    icon:'package',
+                    icon:'iconfont icon-gouwuche',
                     path:'/cart',
                     name:'Cart'
                 },{
                     text:'我的',
-                    icon:'person',
+                    icon:'iconfont icon-wode',
                     path:'/mine',
                     name:'Mine'
                 }
@@ -95,27 +96,27 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .mint-tabbar{
-        .is-selected{
-            background: none !important;
-            svg{
-                fill:skyblue;
-                // background: linear-gradient(to right,white,gray);
-                /* -webkit-background-clip: text; */
-                // color: transparent;
+        height: 3rem;
+        .mint-tab-item.is-selected{
+            .iconfont{
+                color:#4EAAEA;
             }
+            
+            background: none !important;
         }
     }
-    .mint-tab-item-label{
-        color:black;
-        font-size: .75rem;
-    }
-    svg{
-        path{
-            width: 1rem;
-            height: 1rem;
+    .mint-tab-item{
+        .iconfont{
+            font-size: 1.375rem;
+            // display: block;
+            // margin-bottom:1px;
         }
-        margin-bottom: 0.25rem;
+    }
+    .cao{
+        margin-top:0.3125rem;
+        display: block;
+        font-size: 0.625rem
     }
 </style>

@@ -17,7 +17,7 @@
         </div>
         <div id="nav">
             <dl class="nav">
-                <dt v-for="item in typelist" :key="item.name">
+                <dt v-for="item in typelist" :key="item.name" @click="goto('Datalist',item.imgUrl)">
                     <a href="javascript:;">
                         <img :src="item.img">
                         <span>{{item.title}}</span>
@@ -31,12 +31,18 @@
             <h2 class="store-title">111医药馆网上商城</h2>
             <p class="store-name">1日后到家</p>
         </div>
-        <div class="headline">
+        <div id="headline">
             <dl>
                 <dt>
                     <img src="../assets/jktt.png"/>
                 </dt>
-                <dd v-for="item in mlist" :key="item.title">{{item.title}}</dd>
+                <dd class="headline">
+                    <ul ref="newsUl">
+                        <li v-for="item in headlineNews" :key="item.title">
+                            {{item.title}}
+                        </li>
+                    </ul>
+                </dd>
             </dl>
         </div>
         <div id="hotgoods">
@@ -73,7 +79,19 @@ export default {
         return {
             cflist:[],
             typelist:[],
-            mlist:[],
+            headlineNews:[
+                {
+                    title: "你胖，不是因为懒，要怪身体里的一种基因！"
+                },{
+                    title: "小心了！做这些事情，你会招惹到“大姨妈”！"
+                },{
+                    title: "数九寒天，宝宝感冒了，可以给他们喝这几种汤！"
+                },{
+                    title: "每个被口臭困扰的人，都该知道这些！"
+                },{
+                    title: "明明只是眼睛疲劳，怎么就成了病？"
+                }
+            ],
             hotgoods:[
                 {
                     "price": 26.9,
@@ -147,9 +165,38 @@ export default {
             // 编程式导航:获取router实例
             let obj = {name};
             if(id){
+                id = id.split('=')[1];  
                 obj.params = {id};
             }
             this.$router.push(obj);
+        },
+        changeNews(){
+            var ulTimer;
+            clearInterval(ulTimer);
+            ulTimer = setInterval(()=>{
+                var prevItem = this.headlineNews[0];
+                this.headlineNews.shift();
+                this.headlineNews.push(prevItem);
+                if(this.$refs.newsUl){
+                    this.$refs.newsUl.style.top = 0;
+                    var newsTimer;
+                    clearInterval(newsTimer);
+                    newsTimer = setInterval(()=>{
+                        if(this.$refs.newsUl){
+                            var cur = parseInt(getComputedStyle(this.$refs.newsUl,false).top);
+                            if(cur > -16){
+                                this.$refs.newsUl.style.top = cur - 1 + "px";
+                            }else{
+                                clearInterval(newsTimer);
+                            }
+                        }else{
+                            clearInterval(newsTimer);
+                        }
+                    },30);
+                }else{
+                    clearInterval(ulTimer);
+                }
+            },4000); 
         }
     },
     created(){
@@ -158,13 +205,17 @@ export default {
             console.log(data);
             this.cflist = data.cfList;
             this.typelist = data.typeList;
-            this.mlist = data.mList;
+            // this.mlist = data.mList;
         })
         this.$axios.get('ygapi?method=GetHomePageActivityServiceV4&client_type=wap&pageNo=2&pageSize=8').then(res=>{
             let data = res.data.list;
             console.log(data);
             this.list = data;
         })
+    },
+    mounted(){
+        console.log(123);
+        this.changeNews();
     }
 }
 </script>
@@ -188,13 +239,14 @@ export default {
         }
     }
     // 健康头条
-    .headline{
+    #headline{
         height: 3.625rem;
         margin-top: 5%;
         line-height: 3.625rem;
         border-top: 0.0625rem solid #dee2f6;
         border-bottom: 0.0625rem solid #dee2f6;
         overflow: hidden;
+        position: relative;
         dl {
             dt {
                 float: left;
@@ -208,18 +260,29 @@ export default {
                 }
             }
             dd{
-                float: left;
-                width: 75%;
-                // display: table;
-                height: 3.5rem;
-                overflow: hidden;
-                -webkit-line-clamp: 1;
-                word-break: keep-all;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                color: #4d4e58;
-                font-size: 0.8125rem;
-                padding-left: 2.5%;
+                ul{
+                    margin-top:1rem;
+                    position: absolute;
+                    width: 75%;
+                    height: 3.5rem;
+                    overflow: hidden;
+                    word-break: keep-all;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: #4d4e58;
+                    font-size: 0.8125rem;
+                    padding-left: 2.5%;
+                    top:-1rem;
+                    left:4.75rem;
+                    li{
+                        overflow: hidden;
+                        word-break: keep-all;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        color: #4d4e58;
+                        font-size: 0.8125rem;
+                    }
+                }
             }   
         } 
     }
