@@ -53,7 +53,7 @@ export default {
         display: inline-block;
         background: #aaaaaa;
         color: #fff;
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 2.8125rem;
         width: 6.25rem;
         height: 2.8125rem;
@@ -91,13 +91,13 @@ export default {
     }
     .p-a {
         color: #61b8b2;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .hint {
         height: 10.625rem;
         padding-top: 1.875rem;
         padding-left: 0.625rem;
-        font-size:16px; 
+        font-size:1rem; 
     }
     .hint-a {
         color: #6793c2;

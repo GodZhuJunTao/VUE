@@ -114,15 +114,15 @@ export default {
     }
     .box2 {
         height: 1rem;
-        font-size:16px;
+        font-size:1rem;
     }
     .a2 {
         color: coral;
     }
     .p-i{
         float: left;
-        padding-left: 10px;
-        font-size:16px; 
-        margin-bottom:270px;
+        padding-left: 0.625rem;
+        font-size:1rem; 
+        margin-bottom:16.875rem;
     }
 </style>
