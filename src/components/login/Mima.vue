@@ -8,7 +8,7 @@
                 <div class="box2">
                     <a href class="a1">忘记密码?</a>
                 </div>
-                <p>
+                <p class="p-i">
                     还没账号?
                     <a href class="a2">手机注册</a>
                 </p>
@@ -100,6 +100,7 @@ export default {
     }
     .wx-d {
         text-align: center;
+       
     }
     .wx {
         width: 1.875rem;
@@ -113,8 +114,15 @@ export default {
     }
     .box2 {
         height: 1rem;
+        font-size:16px;
     }
     .a2 {
         color: coral;
+    }
+    .p-i{
+        float: left;
+        padding-left: 10px;
+        font-size:16px; 
+        margin-bottom:270px;
     }
 </style>

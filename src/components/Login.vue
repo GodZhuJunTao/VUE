@@ -119,9 +119,18 @@
         height: 1rem;
         padding-left: 0.625rem;
     }
-    .bjx {
-        height: 1rem;
+    .mint-tab-item-label{
+        p{
+            position: relative;
+            .bjx {
+                height: 1rem;
+                position:absolute;
+                top:-4px;
+                left: 40px;
+            }
+        }
     }
+   
     // .bjx1 {
     //     height: 16px;
     // }
