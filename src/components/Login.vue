@@ -17,8 +17,8 @@
                     </p>
                 </mt-tab-item> -->
             </mt-navbar>
+            <router-view />
         </div>
-        <router-view />
         <!-- tab-container -->
         <!-- <mt-tab-container v-model="selected">
             <mt-tab-container-item id="1">
@@ -71,19 +71,19 @@
                     {
                         title:'验证码登录',
                         img:'../img/em.png',
-                        name:'em'
+                        name:'Em'
                     },
                     {
                         title:'密码登录',
                         img:'../img/mima.png',
-                        name:'mima'
+                        name:'Mima'
                     }
                 ],
-                selected: "",
-                username: "",
-                password: "",
-                phone: "",
-                number: ""
+                selected: "Em",
+                // username: "",
+                // password: "",
+                // phone: "",
+                // number: ""
             };
         },
         methods:{
@@ -116,11 +116,11 @@
         width: 100%;
     }
     .bj {
-        height: 16px;
-        padding-left: 10px;
+        height: 1rem;
+        padding-left: 0.625rem;
     }
     .bjx {
-        height: 16px;
+        height: 1rem;
     }
     // .bjx1 {
     //     height: 16px;
@@ -131,7 +131,7 @@
     //     font-size: 16px;
     // }
     .box {
-        height: 100px;
+        height: 6.25rem;
         text-align: center;
     }
     // .mint-navbar {
