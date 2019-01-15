@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="return">
-            <img src="../img/jiant.jpg" alt class="bj">
+            <img src="../img/jiant.jpg" class="bj" @click="back">
         </h1>
         <div class="box">
             <mt-navbar v-model="selected">
@@ -10,56 +10,9 @@
                         <img :src="item.img" alt class="bjx">{{item.title}}
                     </p>
                 </mt-tab-item>
-                
-                <!-- <mt-tab-item id="2">
-                    <p>
-                        <img src="../img/mima.png" alt class="bjx1">密码登录
-                    </p>
-                </mt-tab-item> -->
             </mt-navbar>
             <router-view />
         </div>
-        <!-- tab-container -->
-        <!-- <mt-tab-container v-model="selected">
-            <mt-tab-container-item id="1">
-                <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="phone">
-                    <span class="code">获取验证码</span>
-                </mt-field>
-                <mt-field label="验证码" placeholder="验证码" type="url"></mt-field>
-                <mt-field label="推广码" placeholder="选填" type="number" v-model="number"></mt-field>
-                <p class="p-code">
-                    <a href class="p-a">收不到验证码？获取语音验证</a>
-                </p>
-                <mt-button type="primary" @click="goto">登录</mt-button>
-                <p class="hint">
-                    温馨提示：未注册111医药馆的手机号登录时将自动注册，且代表你已经同意
-                    <a href class="hint-a">《111医药馆用户注册协议》</a>
-                </p>
-                <img src="../img/huo.jpg" alt>
-                <div class="wx-d">
-                    <img src="../img/wx.png" alt class="wx">
-                    <span>微信登录</span>
-                </div>
-            </mt-tab-container-item>
-
-            <mt-tab-container-item id="2">
-                <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
-                <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
-                <mt-button type="primary" @click="goto">登录</mt-button>
-                <div class="box2">
-                    <a href class="a1">忘记密码?</a>
-                </div>
-                <p>
-                    还没账号?
-                    <a href class="a2">手机注册</a>
-                </p>
-                <img src="../img/huo.jpg" alt>
-                <div class="wx-d">
-                    <img src="../img/wx.png" alt class="wx">
-                    <span>微信登录</span>
-                </div>
-            </mt-tab-container-item>
-        </mt-tab-container> -->
     </div>
 </template>
 
@@ -93,6 +46,9 @@
             },
             goto(name){ 
                 this.$router.push({path:'/login/'+name})
+            },
+            back(){
+                this.$router.back();
             }
         }
     };

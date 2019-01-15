@@ -52,7 +52,7 @@
             direction="horizontal"
             class="horizontal-scroll-list-wrap">
                 <ul class="list-wrapper">
-                    <li v-for="(item,idx) in hotgoods" class="list-item" :key="idx">
+                    <li v-for="(item,idx) in hotgoods" class="list-item" :key="idx" @click="goto('Detail',item.goods_id)">
                         <img :src="item.img"/>
                         <p class="hot_title">{{item.short_name}}</p>
                         <p class="hot_price">￥{{item.price}}</p>
@@ -165,7 +165,9 @@ export default {
             // 编程式导航:获取router实例
             let obj = {name};
             if(id){
-                id = id.split('=')[1];  
+                if(typeof(id)=='string'){
+                    id = id.split('=')[1];  
+                }
                 obj.params = {id};
             }
             this.$router.push(obj);

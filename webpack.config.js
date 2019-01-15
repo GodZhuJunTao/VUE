@@ -82,7 +82,7 @@ module.exports = {
                 test:/\.scss$/,
                 loader:['style-loader','css-loader','sass-loader']
             },
-
+            // svg  ttf
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
                 loader: 'file-loader'

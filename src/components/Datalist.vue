@@ -49,7 +49,7 @@ export default {
     console.log(this.$route.params.id);
     this.$axios
       .get(
-        "ygapi?method=getProductSecondCategoryAndGoodsData&platformType=wap&pid=1173&storeid="
+        'ygapi?method=getProductSecondCategoryAndGoodsData&platformType=wap&pid='+id+'&storeid='
       ).then(res => {
         console.log(res.data.categorys);
         this.datalist = res.data.categorys;

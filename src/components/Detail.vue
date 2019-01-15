@@ -1,8 +1,15 @@
 <template>
     <div style="margin-bottom:50px;">
-        <div class="top"><span class="img-noe"><img src="../img/jtou.png" alt=""></span><span class="img-two" @click.native="goto"><img src="../img/gd.png" @click.native="goto"></span></div>
+        <div class="top">
+            <span class="img-noe" @click="goto">
+                <img src="../img/jtou.png">
+            </span>
+            <span class="img-two">
+                <img src="../img/gd.png">
+            </span>
+        </div>
         <mt-swipe>
-            <mt-swipe-item v-for="(item,idx) in imgs" :key="idx" @click.native="goto"><img :src="'http://img.zdfei.com/'+item.images" alt=""></mt-swipe-item>
+            <mt-swipe-item v-for="(item,idx) in imgs" :key="idx"><img :src="'http://img.zdfei.com/'+item.images" alt=""></mt-swipe-item>
         </mt-swipe>
         <div style="border-bottom:1px solid #ECECEC;margin:0 10px 0 10px;">
                 <p class="p-noe">{{goods.goods_name}}<img src="../img/oct.jpg" class="img-therr"></p>
@@ -10,13 +17,13 @@
                 <span class="s-two">￥{{price}}</span>
         </div>
         <div class="center">
-            <p><span>功效</span>{{goods.main_title}}<img src="../img/gd1.png"><br/><span>厂家</span>{{goods.manu_name}}</p>
+            <p @click="goto"><span>功效</span>{{goods.main_title}}<img src="../img/gd1.png"><br/><span>厂家</span>{{goods.manu_name}}</p>
             <p><span>规格</span>{{goods.spec}}<img src="../img/gd1.png"></p>
         </div>
         <div class="back"></div>
         <div class="img-four"><img src="../img/cn.jpg" alt=""></div>
         <div>
-            <cube-scroll  ref="scroll"  direction="horizontal" class="horizontal-scroll-list-wrap">
+            <cube-scroll  ref="scroll"  direction="horizontal" class="horizontal-scroll-list-wrap" id="woqu">
                 <ul class="list-wrapper">
                     <li class="list-item" v-for="item in cnzzs" :key="item.id"><img :src="'http://img.zdfei.com/'+item.abbreviation_picture"><span>{{item.short_name}}</span><br/><span style="color:red;">￥{{item.price}}</span></li>
                 </ul>
@@ -67,7 +74,7 @@ export default {
     methods:{
         goto(){
             console.log(123);
-            // this.$router.go(-1);
+            this.$router.go(-2);
         }
     },
     created(){
@@ -76,7 +83,7 @@ export default {
         // console.log(this.cnzzs);
         let id = this.$route.params.id;
         // console.log(this.$route.params.id);
-        this.$axios.get('ygapi?method=goodsDetailWapMINAUse&platFormType=wap&goodsId=36&storeId=').then(res=>{
+        this.$axios.get('ygapi?method=goodsDetailWapMINAUse&platFormType=wap&goodsId='+id+'&storeId=').then(res=>{
             console.log(res.data);
             this.imgs = res.data.goodsImages;
             this.goods = res.data.goods;
@@ -174,29 +181,7 @@ export default {
             width: 100%;
         }
     }
-    .cube-scroll-content{
-        display: inline-block;
-        .list-wrapper{
-            display: flex;
-            // white-space: nowrap;
-            .list-item{
-                margin:0.1875rem 0.3125rem 0.1875rem 0.3125rem;
-                // float: left;
-                width: 6.25rem;
-                height: 9.75rem;
-                display: inline-block;
-                
-                span{
-                    font-size:0.75rem;
-                }
-                img{
-                    width: 6.25rem;
-                    height: 6.25rem;
-                }
-            }
-        }
-
-    }
+    
   
     .bottom{
         margin-top:2.5rem;

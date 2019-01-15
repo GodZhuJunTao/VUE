@@ -11,52 +11,16 @@
                 <span>满99元免运费</span>
             </div>
             <ul class="cen">
-                <li>
-                    <span><img src="../assets/g.png"/></span>
-                    <img src="../assets/cart.jpg"/>
+                <li v-for="(item,idx) in data" :key="idx">
+                    <span :class="{'active':item.none}" @click="select(idx)"><img src="../assets/g.png"/></span>
+                    <img :src="item.img"/>
                     <div>
-                        <p>天力士 藿香正气滴丸2.26g*9袋</p>
-                        <span>2.6g*9袋</span>
-                        <span>￥24.90</span>
-                        <span class="jian tt">-</span>
-                        <span class="tt">1</span>
-                        <span class="jia tt">+</span>
-                    </div>
-                </li>
-                <li>
-                    <span><img src="../assets/g.png"/></span>
-                    <img src="../assets/cart.jpg"/>
-                    <div>
-                        <p>天力士 藿香正气滴丸2.26g*9袋</p>
-                        <span>2.6g*9袋</span>
-                        <span>￥24.90</span>
-                        <span class="jian tt">-</span>
-                        <span class="tt">1</span>
-                        <span class="jia tt">+</span>
-                    </div>
-                </li>
-                <li>
-                    <span><img src="../assets/g.png"/></span>
-                    <img src="../assets/cart.jpg"/>
-                    <div>
-                        <p>天力士 藿香正气滴丸2.26g*9袋</p>
-                        <span>2.6g*9袋</span>
-                        <span>￥24.90</span>
-                        <span class="jian tt">-</span>
-                        <span class="tt">1</span>
-                        <span class="jia tt">+</span>
-                    </div>
-                </li>
-                <li>
-                    <span><img src="../assets/g.png"/></span>
-                    <img src="../assets/cart.jpg"/>
-                    <div>
-                        <p>天力士 藿香正气滴丸2.26g*9袋</p>
-                        <span>2.6g*9袋</span>
-                        <span>￥24.90</span>
-                        <span class="jian tt">-</span>
-                        <span class="tt">1</span>
-                        <span class="jia tt">+</span>
+                        <p>{{item.title}}</p>
+                        <span>{{item.spec}}</span>
+                        <span>￥{{item.price}}</span>
+                        <span class="tt" @click="changeNum('sub',idx)">-</span>
+                        <span class="tt">{{item.num}}</span>
+                        <span class="tt" @click="changeNum('add',idx)">+</span>
                     </div>
                 </li>
             </ul>
@@ -73,12 +37,62 @@
 
 <script>
 export default {
+    data(){
+        return {
+            data:[
+                {
+                    title:'天力士 藿香正气滴丸2.26g*9袋',
+                    spec:'2.6g*9袋',
+                    price:'24.90',
+                    num:1,
+                    img:'../assets/cart.jpg',
+                    none:false
+                },{
+                    title:'王老吉 小儿七星茶颗粒7g*10袋',
+                    spec:'7g*10袋/盒',
+                    price:'24.00',
+                    num:2,
+                    img:'../assets/cart.jpg',
+                    none:false
+                }
+            ]
+        }
+    },
+    methods:{
+        changeNum(state,key){
+            let Num = this.data[key].num;
+            // console.log(key,this.data[key].num);
+            if(state == 'sub'){
+                if(Num<=1){
+                    Num = 1;
+                    return 
+                }else{
+                    Num--;
+                }
+            }else{
+                if(Num>=10){
+                    Num = 10;
+                    return 
+                }else{
+                    Num++;
+                }
+            }
+            this.data[key].num = Num;
+            // console.log(this.data[key].num)
+        },
+        select(idx){
+            this.data[idx].none = !this.data[idx].none;
+        }
+    },
+    mounted(){
 
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-    //内容区域
+    //内容 
+    
     #cen{
         margin-top:3.125rem;
         .top{
@@ -129,6 +143,9 @@ export default {
                         width: 0.875rem;
                         height: 0.875rem;
                     }
+                }
+                .active{
+                    background: #d7d7d7 !important;
                 }
                 >img{
                     position: absolute;

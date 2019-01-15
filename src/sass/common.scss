@@ -12,6 +12,32 @@ body>div{height: 100%;}
     background:rgba(0,0,0,.2)
 }
 fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
+// detail下面的
+#woqu{
+    .cube-scroll-content{
+        display: inline-block;
+        .list-wrapper{
+            display: flex;
+            // white-space: nowrap;
+            .list-item{
+                margin:0.1875rem 0.3125rem 0.1875rem 0.3125rem;
+                // float: left;
+                width: 6.25rem;
+                height: 9.75rem;
+                display: inline-block;
+                
+                span{
+                    font-size:0.75rem;
+                }
+                img{
+                    width: 6.25rem;
+                    height: 6.25rem;
+                }
+            }
+        }
+
+    }
+}
 // Mine下面的
 #mine{
     .horizontal-scroll-list-wrap {
