@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="return">
-            <img src="../img/jiant.jpg" class="bj" @click="back">
+            <img src="@/img/jiant.jpg" class="bj" @click="back">
         </h1>
         <div class="box">
             <mt-navbar v-model="selected">
@@ -23,12 +23,12 @@
                 data:[
                     {
                         title:'验证码登录',
-                        img:'../img/em.png',
+                        img:require('@/img/em.png'),
                         name:'Em'
                     },
                     {
                         title:'密码登录',
-                        img:'../img/mima.png',
+                        img:require('@/img/mima.png'),
                         name:'Mima'
                     }
                 ],

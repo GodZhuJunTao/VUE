@@ -12,9 +12,9 @@
                     还没账号?
                     <a href class="a2">手机注册</a>
                 </p>
-                <img src="../../img/huo.jpg" alt>
+                <img src="@/img/huo.jpg" alt>
                 <div class="wx-d">
-                    <img src="../../img/wx.png" alt class="wx">
+                    <img src="@/img/wx.png" alt class="wx">
                     <span>微信登录</span>
                 </div>
             </mt-tab-container-item>

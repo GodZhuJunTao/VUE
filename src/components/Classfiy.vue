@@ -35,12 +35,28 @@
 </template>
 
 <script>
-// import List from '../assets/json/list.json';
-// import Lists from '../assets/json/lists.json';
+import Lists from '../assets/json/lists.json';
 export default {
     data(){
         return {
-            list:[],
+            list:[
+                {
+                    name:'人群找药',
+                    status:true
+                },{
+                    name:'家庭常备',
+                    status:false
+                },{
+                    name:'器械计生',
+                    status:false
+                },{
+                    name:'保健营养',
+                    status:false
+                },{
+                    name:'草药饮片',
+                    status:false
+                }
+            ],
             lists:[]
         }
     },
@@ -50,16 +66,16 @@ export default {
         }
     },
     created(){
-        this.$axios.get('../assets/json/list.json').then(res=>{
-            this.list = res.data.list;
-            console.log(this.list);
-        })
-        this.$axios.get('../assets/json/lists.json').then(res=>{
-            this.lists = res.data;
-            console.log(this.lists);
-        })
-        // this.list = List;
-        // this.lists = Lists;
+        // this.$axios.get('../assets/json/list.json').then(res=>{
+        //     this.list = res.data.list;
+        //     console.log(this.list);
+        // })
+        // this.$axios.get('../assets/json/lists.json').then(res=>{
+        //     this.lists = res.data;
+        //     console.log(this.lists);
+        // })
+        // this.list = List.list;
+        this.lists = Lists;
     }
 }
 </script>

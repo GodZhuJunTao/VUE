@@ -1,28 +1,28 @@
 <template>
     <div style="padding-bottom:3.125rem;">
         <div class="top">
-            <img src="../img/sz.png" alt style="float:right;padding-right:0.625rem;">
+            <img src="@/img/sz.png" alt style="float:right;padding-right:0.625rem;">
             <span class="head">
                 <i class="head-i">
-                    <img src="../img/tx.png" alt>
+                    <img src="@/img/tx.png" alt>
                 </i>
             </span>
             <span class="enter" @click="goto('login')">登录/注册</span>
             <p class="box">
             <span>
-                <img src="../img/vip.png" alt class="i-1">会员卡
+                <img src="@/img/vip.png" alt class="i-1">会员卡
             </span>
             <i>
-                <img src="../img/kq.png" alt class="i-2">卡券
+                <img src="@/img/kq.png" alt class="i-2">卡券
             </i>
             <i>
-                <img src="../img/tk.png" alt class="i-2">关注
+                <img src="@/img/tk.png" alt class="i-2">关注
             </i>
             <i>
-                <img src="../img/gz.png" alt class="i-2">积分
+                <img src="@/img/gz.png" alt class="i-2">积分
             </i>
             <i>
-                <img src="../img/tm.png" alt class="i-2">条码
+                <img src="@/img/tm.png" alt class="i-2">条码
             </i>
             </p>
         </div>
@@ -75,19 +75,68 @@
 </template>
 
 <script>
-import datall from "../assets/lid/data";
-import myhealth from "../assets/lid/health";
+// import datall from "@/assets/lid/data";
+// import myhealth from "@/assets/lid/health";
 export default {
     data() {
         return {
-            draw: [],
-            stamina: [],
+            draw: [{
+                "img":require("@/img/df.png"),
+                "term":"待付款" 
+            },
+            {
+                "img":require("@/img/db.png"),
+                "term":"待发货"
+            },{
+                "img":require("@/img/sh.png"),
+                "term":"待收货"
+            },{
+                "img":require("@/img/pinglun.png"),
+                "term":"待评论"
+            },{
+                "img":require("@/img/shouhou.png"),
+                "term":"售后/退款"
+            },{
+                "img":require("@/img/ss.png"),
+                "term":"找药需求"
+            },{
+                "img":require("@/img/md.png"),
+                "term":"门店订单"
+            },{
+                "img":require("@/img/pl.png"),
+                "term":"兑换记录"
+            }],
+            stamina: [{
+                        "img":require("@/img/sb.png"),
+                        "corporeity":"步数",
+                        "facility":"绑定手环",
+                        "tiem":"0"
+                    },
+                    {
+                        "img":require("@/img/xy.png"),
+                        "corporeity":"血压",
+                        "facility":"--",
+                        "tiem":"--"
+                    },
+                    {
+                        "img":require("@/img/xt.png"),
+                        "corporeity":"血糖",
+                        "facility":"--",
+                        "tiem":"--"
+                    },
+                    {
+                        "img":require("@/img/tz.png"),
+                        "corporeity":"体重",
+                        "facility":"--",
+                        "tiem":"--"
+                        
+                    }],
             point: [
-                { gps: "收货地址", img: "../img/jt.jpg" },
-                { gps: "积分商城", img: "../img/jt.jpg" },
-                { gps: "在线客服", img: "../img/jt.jpg" },
-                { gps: "健康管家", phone: "400606311", img: "../img/jt.jpg" },
-                { gps: "意见反馈", img: "../img/jt.jpg" }
+                { gps: "收货地址", img: require("@/img/jt.jpg") },
+                { gps: "积分商城", img: require("@/img/jt.jpg") },
+                { gps: "在线客服", img: require("@/img/jt.jpg") },
+                { gps: "健康管家", phone: "400606311", img: require("@/img/jt.jpg") },
+                { gps: "意见反馈", img: require("@/img/jt.jpg") }
             ]
         };
     },
@@ -96,11 +145,11 @@ export default {
             this.$router.push(path);
         }
     },
-    created() {
-            this.draw = datall;
-            this.stamina = myhealth;
-            // this.point = mypoint;
-    }
+    // created() {
+    //         // this.draw = datall;
+    //         this.stamina = myhealth;
+    //         // this.point = mypoint;
+    // }
 };
 </script>
 

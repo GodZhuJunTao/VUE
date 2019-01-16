@@ -1,27 +1,27 @@
 <template>
     <div style="margin-bottom:50px;">
         <div class="top">
-            <span class="img-noe" @click="goto">
-                <img src="../img/jtou.png">
+            <span class="img-noe" @click="goto('home')">
+                <img src="@/img/jtou.png">
             </span>
             <span class="img-two">
-                <img src="../img/gd.png">
+                <img src="@/img/gd.png">
             </span>
         </div>
         <mt-swipe>
             <mt-swipe-item v-for="(item,idx) in imgs" :key="idx"><img :src="'http://img.zdfei.com/'+item.images" alt=""></mt-swipe-item>
         </mt-swipe>
         <div style="border-bottom:1px solid #ECECEC;margin:0 10px 0 10px;">
-                <p class="p-noe">{{goods.goods_name}}<img src="../img/oct.jpg" class="img-therr"></p>
+                <p class="p-noe">{{goods.goods_name}}<img src="@/img/oct.jpg" class="img-therr"></p>
                 <span class="s-noe">{{goods.spec}}</span>
                 <span class="s-two">￥{{price}}</span>
         </div>
         <div class="center">
-            <p @click="goto"><span>功效</span>{{goods.main_title}}<img src="../img/gd1.png"><br/><span>厂家</span>{{goods.manu_name}}</p>
-            <p><span>规格</span>{{goods.spec}}<img src="../img/gd1.png"></p>
+            <p @click="goto"><span>功效</span>{{goods.main_title}}<img src="@/img/gd1.png"><br/><span>厂家</span>{{goods.manu_name}}</p>
+            <p><span>规格</span>{{goods.spec}}<img src="@/img/gd1.png"></p>
         </div>
         <div class="back"></div>
-        <div class="img-four"><img src="../img/cn.jpg" alt=""></div>
+        <div class="img-four"><img src="@/img/cn.jpg" alt=""></div>
         <div>
             <cube-scroll  ref="scroll"  direction="horizontal" class="horizontal-scroll-list-wrap" id="woqu">
                 <ul class="list-wrapper">
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-// import mycnzzs from '../assets/lid/more';
-import mygoodsImages from '../assets/lid/more';
+// import mycnzzs from '@/assets/lid/more';
+import mygoodsImages from '@/assets/lid/more';
 export default {
     data(){
         return{
@@ -72,9 +72,9 @@ export default {
         }
     },
     methods:{
-        goto(){
-            console.log(123);
-            this.$router.go(-2);
+        goto(path){
+            // console.log(123);
+            this.$router.push(path);
         }
     },
     created(){

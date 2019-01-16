@@ -34,7 +34,7 @@
         <div id="headline">
             <dl>
                 <dt>
-                    <img src="../assets/jktt.png"/>
+                    <img src="@/assets/jktt.png"/>
                 </dt>
                 <dd class="headline">
                     <ul ref="newsUl">
@@ -98,64 +98,64 @@ export default {
                     "goodsno": "0301035",
                     "goods_id": 3151,
                     "short_name": "同仁堂 五子衍宗丸",
-                    "img":"../assets/hotgoods/trt.jpg"
+                    "img":require("@/assets/hotgoods/trt.jpg")
                 },
                 {
                     "price": 29,
                     "goodsno": "0113132",
                     "goods_id": 7531,
                     "short_name": "格华止 盐酸二甲双胍片",
-                    "img":"../assets/hotgoods/zkt.jpg"
+                    "img":require("@/assets/hotgoods/zkt.jpg")
                 },
                 {
                     "price": 33.9,
                     "goodsno": "0314196",
                     "goods_id": 5850,
                     "short_name": "同仁堂 右归丸",
-                    "img":"../assets/hotgoods/ygw.jpg"
+                    "img":require("@/assets/hotgoods/ygw.jpg")
                 },
                 {
                     "price": 15,
                     "goodsno": "0405007",
                     "goods_id": 1305,
                     "short_name": "999  三九胃泰颗粒",
-                    "img":"../assets/hotgoods/999.jpg"
+                    "img":require("@/assets/hotgoods/999.jpg")
                 },
                 {
                     "price": 14.3,
                     "goodsno": "0405036",
                     "goods_id": 5583,
                     "short_name": "北华 枸橼酸钾颗粒",
-                    "img":"../assets/hotgoods/bh.jpg"
-                },
+                    "img":require("@/assets/hotgoods/bh.jpg"
+)                },
                 {
                     "price": 29,
                     "goodsno": "0113132",
                     "goods_id": 7531,
                     "short_name": "格华止 盐酸二甲双胍片",
-                    "img":"../assets/hotgoods/zkt.jpg"
+                    "img":require("@/assets/hotgoods/zkt.jpg")
                 },
                 {
                     "price": 33.9,
                     "goodsno": "0314196",
                     "goods_id": 5850,
                     "short_name": "同仁堂 右归丸",
-                    "img":"../assets/hotgoods/ygw.jpg"
+                    "img":require("@/assets/hotgoods/ygw.jpg")
                 },
                 {
                     "price": 15,
                     "goodsno": "0405007",
                     "goods_id": 1305,
                     "short_name": "999  三九胃泰颗粒",
-                    "img":"../assets/hotgoods/999.jpg"
+                    "img":require("@/assets/hotgoods/999.jpg")
                 },
                 {
                     "price": 14.3,
                     "goodsno": "0405036",
                     "goods_id": 5583,
                     "short_name": "北华 枸橼酸钾颗粒",
-                    "img":"../assets/hotgoods/bh.jpg"
-                }  
+                    "img":require("@/assets/hotgoods/bh.jpg"
+)                }  
             ],
             list:[]
         }

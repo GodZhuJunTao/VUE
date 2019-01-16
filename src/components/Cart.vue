@@ -12,7 +12,7 @@
             </div>
             <ul class="cen">
                 <li v-for="(item,idx) in data" :key="idx">
-                    <span :class="{'active':item.none}" @click="select(idx)"><img src="../assets/g.png"/></span>
+                    <span :class="{'active':item.none}" @click="select(idx)"><img src="@/assets/g.png"/></span>
                     <img :src="item.img"/>
                     <div>
                         <p>{{item.title}}</p>
@@ -26,7 +26,7 @@
             </ul>
         </div>
         <footer>
-            <span><img src="../assets/g.png"></span>
+            <span><img src="@/assets/g.png"></span>
             <span>全选</span>
             <span>总计:<a>￥167.80</a></span>
             <span>不含运费,已优惠-￥0</span>
@@ -45,14 +45,14 @@ export default {
                     spec:'2.6g*9袋',
                     price:'24.90',
                     num:1,
-                    img:'../assets/cart.jpg',
+                    img:require('@/assets/cart.jpg'),
                     none:false
                 },{
                     title:'王老吉 小儿七星茶颗粒7g*10袋',
                     spec:'7g*10袋/盒',
                     price:'24.00',
                     num:2,
-                    img:'../assets/cart.jpg',
+                    img:require('@/assets/cart.jpg'),
                     none:false
                 }
             ]

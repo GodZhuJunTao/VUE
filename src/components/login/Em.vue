@@ -15,9 +15,9 @@
                     温馨提示：未注册111医药馆的手机号登录时将自动注册，且代表你已经同意
                     <a href class="hint-a">《111医药馆用户注册协议》</a>
                 </p>
-                <img src="../../img/huo.jpg" alt>
+                <img src="@/img/huo.jpg" alt>
                 <div class="wx-d">
-                    <img src="../../img/wx.png" alt class="wx">
+                    <img src="@/img/wx.png" alt class="wx">
                     <span>微信登录</span>
                 </div>
             </mt-tab-container-item>
