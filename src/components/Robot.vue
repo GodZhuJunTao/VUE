@@ -1,7 +1,7 @@
 <template>
-    <div style="padding-bottom:65px;">
+    <div style="padding-bottom:4.0625rem;">
         <div></div>
-            <img src="../img/ss.jpg" alt="" class="img">
+            <img src="@/img/ss.jpg" alt="" class="img">
         <Nav></Nav>
     </div>
 </template>
