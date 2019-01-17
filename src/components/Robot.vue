@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <div>敬请期待。。。</div>
+    <div style="padding-bottom:65px;">
+        <div></div>
+            <img src="../img/ss.jpg" alt="" class="img">
         <Nav></Nav>
     </div>
 </template>
@@ -15,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+    .img{
+        width: 100%;
+        height: 100%;
+    }
 </style>

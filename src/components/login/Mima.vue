@@ -114,7 +114,9 @@ export default {
     }
     .box2 {
         height: 1rem;
-        font-size:1rem;
+        font-size:15px;
+        margin-top:7px; 
+        margin-right:7px; 
     }
     .a2 {
         color: coral;
@@ -122,7 +124,8 @@ export default {
     .p-i{
         float: left;
         padding-left: 0.625rem;
-        font-size:1rem; 
-        margin-bottom:16.875rem;
+        font-size:14px; 
+        line-height: 24px;
+        margin-bottom:0.875rem;
     }
 </style>
