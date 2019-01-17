@@ -32,10 +32,12 @@
             <span>不含运费,已优惠-￥0</span>
             <span>结算</span>
         </footer>
+        <Nav></Nav>
     </div>
 </template>
 
 <script>
+import Nav from './Nav'
 export default {
     data(){
         return {
@@ -86,6 +88,9 @@ export default {
     },
     mounted(){
 
+    },
+    components:{
+        Nav
     }
 }
 </script>

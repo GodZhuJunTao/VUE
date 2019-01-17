@@ -31,11 +31,13 @@
         <footer>
             我是有底线的
         </footer>
+        <Nav></Nav>
     </div>
 </template>
 
 <script>
 import Lists from '../assets/json/lists.json';
+import Nav from './Nav';
 export default {
     data(){
         return {
@@ -76,6 +78,9 @@ export default {
         // })
         // this.list = List.list;
         this.lists = Lists;
+    },
+    components:{
+        Nav
     }
 }
 </script>

@@ -71,12 +71,12 @@
                 </li>
             </ul>
         </div>
+        <Nav></Nav>
     </div>
 </template>
 
 <script>
-// import datall from "@/assets/lid/data";
-// import myhealth from "@/assets/lid/health";
+import Nav from './Nav';
 export default {
     data() {
         return {
@@ -145,11 +145,9 @@ export default {
             this.$router.push(path);
         }
     },
-    // created() {
-    //         // this.draw = datall;
-    //         this.stamina = myhealth;
-    //         // this.point = mypoint;
-    // }
+    components:{
+        Nav
+    }
 };
 </script>
 

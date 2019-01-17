@@ -70,10 +70,12 @@
             </ul>
         </div>
         <div class="footer">我是有底线的</div>
+        <Nav></Nav>
     </div>
 </template>
 
 <script>
+import Nav from './Nav'
 export default {
     data(){
         return {
@@ -126,8 +128,8 @@ export default {
                     "goodsno": "0405036",
                     "goods_id": 5583,
                     "short_name": "北华 枸橼酸钾颗粒",
-                    "img":require("@/assets/hotgoods/bh.jpg"
-)                },
+                    "img":require("@/assets/hotgoods/bh.jpg")                
+                },
                 {
                     "price": 29,
                     "goodsno": "0113132",
@@ -154,8 +156,8 @@ export default {
                     "goodsno": "0405036",
                     "goods_id": 5583,
                     "short_name": "北华 枸橼酸钾颗粒",
-                    "img":require("@/assets/hotgoods/bh.jpg"
-)                }  
+                    "img":require("@/assets/hotgoods/bh.jpg")                
+                }  
             ],
             list:[]
         }
@@ -218,6 +220,9 @@ export default {
     mounted(){
         // console.log(123);
         this.changeNews();
+    },
+    components:{
+        Nav
     }
 }
 </script>
