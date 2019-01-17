@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="bigbox">
         <div id="top">
             药品清单
             <span>编辑</span>
         </div>
-        <div id="cen">
+        <div id="cen" class="bigcenter">
             <div class="top">
                 <i class="iconfont icon-jifenshangcheng"></i>
                 <span>111医药商城·1日后到家</span>

@@ -8,68 +8,70 @@
                 <input type="search" name="searchinput" placeholder="药品/症状/品牌" autocomplete="off" readonly="readonly" class="search-input" @click="goto('Search')"/>
             </div>
         </div>
-        <div id="carousel">
-            <mt-swipe :auto="2000">
-                <mt-swipe-item v-for="item in cflist" :key="item.name">
-                    <img :src="item.imgUrl" class="img">
-                </mt-swipe-item>
-            </mt-swipe>
-        </div>
-        <div id="nav">
-            <dl class="nav">
-                <dt v-for="item in typelist" :key="item.name" @click="goto('Datalist',item.imgUrl)">
-                    <a href="javascript:;">
-                        <img :src="item.img">
-                        <span>{{item.title}}</span>
-                    </a>
-                </dt>
-            </dl>
-        </div>
-        <div class="yyg">
-            <img src="../assets/yyg.png"/>
-            <img src="../assets/rjj.png" class="rjj">
-            <h2 class="store-title">111医药馆网上商城</h2>
-            <p class="store-name">1日后到家</p>
-        </div>
-        <div id="headline">
-            <dl>
-                <dt>
-                    <img src="@/assets/jktt.png"/>
-                </dt>
-                <dd class="headline">
-                    <ul ref="newsUl">
-                        <li v-for="item in headlineNews" :key="item.title">
-                            {{item.title}}
+        <div class="bigcenter">
+            <div id="carousel">
+                <mt-swipe :auto="2000">
+                    <mt-swipe-item v-for="item in cflist" :key="item.name">
+                        <img :src="item.imgUrl" class="img">
+                    </mt-swipe-item>
+                </mt-swipe>
+            </div>
+            <div id="nav">
+                <dl class="nav">
+                    <dt v-for="item in typelist" :key="item.name" @click="goto('Datalist',item.imgUrl)">
+                        <a href="javascript:;">
+                            <img :src="item.img">
+                            <span>{{item.title}}</span>
+                        </a>
+                    </dt>
+                </dl>
+            </div>
+            <div class="yyg">
+                <img src="../assets/yyg.png"/>
+                <img src="../assets/rjj.png" class="rjj">
+                <h2 class="store-title">111医药馆网上商城</h2>
+                <p class="store-name">1日后到家</p>
+            </div>
+            <div id="headline">
+                <dl>
+                    <dt>
+                        <img src="@/assets/jktt.png"/>
+                    </dt>
+                    <dd class="headline">
+                        <ul ref="newsUl">
+                            <li v-for="item in headlineNews" :key="item.title">
+                                {{item.title}}
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div id="hotgoods">
+                <h2>热销商品</h2>
+                <cube-scroll
+                ref="scroll"
+                direction="horizontal"
+                class="horizontal-scroll-list-wrap">
+                    <ul class="list-wrapper">
+                        <li v-for="(item,idx) in hotgoods" class="list-item" :key="idx" @click="goto('Detail',item.goods_id)">
+                            <img :src="item.img"/>
+                            <p class="hot_title">{{item.short_name}}</p>
+                            <p class="hot_price">￥{{item.price}}</p>
                         </li>
                     </ul>
-                </dd>
-            </dl>
-        </div>
-        <div id="hotgoods">
-            <h2>热销商品</h2>
-            <cube-scroll
-            ref="scroll"
-            direction="horizontal"
-            class="horizontal-scroll-list-wrap">
-                <ul class="list-wrapper">
-                    <li v-for="(item,idx) in hotgoods" class="list-item" :key="idx" @click="goto('Detail',item.goods_id)">
-                        <img :src="item.img"/>
-                        <p class="hot_title">{{item.short_name}}</p>
-                        <p class="hot_price">￥{{item.price}}</p>
+                </cube-scroll>
+                
+            </div>
+            <div id="project">
+                <h2>健康照顾方案</h2>
+                <ul>
+                    <li v-for="item in list" :key="item.id">
+                        <img :src="item.imgUrl"/>
                     </li>
                 </ul>
-            </cube-scroll>
-            
+            </div>
+            <!-- <div class="footer">我是有底线的</div> -->
         </div>
-        <div id="project">
-            <h2>健康照顾方案</h2>
-            <ul>
-                <li v-for="item in list" :key="item.id">
-                    <img :src="item.imgUrl"/>
-                </li>
-            </ul>
-        </div>
-        <div class="footer">我是有底线的</div>
         <Nav></Nav>
     </div>
 </template>
@@ -294,18 +296,18 @@ export default {
         } 
     }
     // 相当于设置版心
-    .bigbox{
+    .bigcenter{
         width: 95%;
         margin: 0 auto;
     }
     .header{
-        height: 5rem;
         width: 100%;
+        height: 5rem;
         background: -webkit-linear-gradient(left,#5fe8ce 2%,#4da5ed);
-        position: fixed;
-        top: 0;
-        z-index: 99;
-        left: 0;
+        // position: fixed;
+        // top: 0;
+        // z-index: 99;
+        // left: 0;
     }
     .header-box {
         display: block;
@@ -414,8 +416,5 @@ export default {
             left:0.625rem;
             top:2.1875rem;
         }
-    }
-    .footer{
-        height: 5rem;
     }
 </style>

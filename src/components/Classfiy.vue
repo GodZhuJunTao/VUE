@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="bigbox">
         <header class="header">
             <div class="header_input">
                 <input class="search-input" id="subcategory_search_input" name="keyword" readonly="readonly" type="search" maxlength="30" placeholder="药品、品牌或症状" @click="goto('Search')"/>
                 <span id="search-btn" class="_new_magnifier"></span>
             </div>
         </header>
-        <div id="con">
+        <div id="con" class="bigcenter">
             <div class="c_top">
                 <cube-scroll
                 ref="scroll"
@@ -28,9 +28,6 @@
                 </div>
             </div>
         </div>
-        <footer>
-            我是有底线的
-        </footer>
         <Nav></Nav>
     </div>
 </template>
@@ -88,7 +85,7 @@ export default {
 <style lang="scss" scoped>
     // 内容区域
     #con{
-        margin: 3.75rem auto 3.125rem;
+        // margin: 3.75rem auto 3.125rem;
         .c_top{
             ul {
                 width: 32.5rem;
@@ -136,31 +133,27 @@ export default {
     }
     // 头部
     .header{
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
         width: 100%;
-        height: 44px;
+        height: 2.75rem;
         z-index: 99;
         background: #fff;
         .header_input{
-            height: 30px;
+            height: 1.875rem;
             position: absolute;
-            left: 44px;
-            right: 44px;
-            top: 7px;
+            left: 2.75rem;
+            right: 2.75rem;
+            top: 0.4375rem;
             background: #efefef;
-            border-radius: 20px;
-            -webkit-border-radius: 20px;
-            padding: 0 14px 0 34px;
+            border-radius: 1.25rem;
+            -webkit-border-radius: 1.25rem;
+            padding: 0 0.875rem 0 2.125rem;
             input{
-                height: 18px;
-                line-height: 18px;
-                font-size: 15px;
+                height: 1.125rem;
+                line-height: 1.125rem;
+                font-size: 0.9375rem;
                 width: 100%;
                 float: left;
-                margin: 6px 0;
+                margin: 0.375rem 0;
                 color: #222;
                 overflow: hidden;
                 word-break: keep-all;
@@ -169,14 +162,14 @@ export default {
                 background: #efefef;
             }
             span{
-                width: 34px;
-                height: 30px;
+                width: 2.125rem;
+                height: 1.875rem;
                 display: block;
                 position: absolute;
                 left: 0;
                 top: 0;
-                background: url(../assets/ss.png) no-repeat 14px center;
-                background-size: 14px;
+                background: url(../assets/ss.png) no-repeat 0.875rem center;
+                background-size: 0.875rem;
             }
         }
     }
