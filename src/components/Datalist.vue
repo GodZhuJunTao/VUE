@@ -1,28 +1,39 @@
 <template>
-    <cube-scroll-nav
-    
-    :data="datalist"
-    :current="current">
-    <cube-scroll-nav-panel
-        v-for="item in datalist"
-        :key="item.category_name"
-        :label="item.category_name"
-        :title="item.category_name"
-    >
-        <img :src="'//img.zdfei.com/'+item.category_image_url">
-        <ul>
-        <li v-for="items in item.goods" :key="items.goodsno" @click="goto('Detail',items.pid)">
-            <img :src="'//img.zdfei.com'+items.image">
-            <p><span class="otc"></span><span>{{items.name}}</span></p>
-            <p>{{items.indication}}</p>
-            <p>{{items.spec}}</p>
-            <p><span>￥</span>{{items.price}}</p>
-            <span>一日后到家</span>
-            <span></span>
-        </li>
-        </ul>
-    </cube-scroll-nav-panel>
-    </cube-scroll-nav>
+    <div class="bigbox">
+        <div class="header">
+            <a data-v-7cb41050="" href="javascript:;" class="iconfont icon-xiazai6" @click="back"></a>
+            <div class="header_input">
+                <input class="search-input" id="subcategory_search_input" name="keyword" readonly="readonly" type="search" maxlength="30" placeholder="药品、品牌或症状" @click="goto('Search')"/>
+                <span id="search-btn" class="_new_magnifier"></span>
+            </div>
+        </div>
+        <div class="bigcenter">
+            <cube-scroll-nav
+            :data="datalist"
+            :current="current"
+            id="datalist">
+            <cube-scroll-nav-panel
+                v-for="item in datalist"
+                :key="item.category_name"
+                :label="item.category_name"
+                :title="item.category_name"
+            >
+                <img :src="'//img.zdfei.com/'+item.category_image_url">
+                <ul>
+                    <li v-for="items in item.goods" :key="items.goodsno" @click="goto('Detail',items.pid)">
+                        <img :src="'//img.zdfei.com'+items.image">
+                        <p><span class="otc"></span><span>{{items.name}}</span></p>
+                        <p>{{items.indication}}</p>
+                        <p>{{items.spec}}</p>
+                        <p><span>￥</span>{{items.price}}</p>
+                        <span>一日后到家</span>
+                        <span></span>
+                    </li>
+                </ul>
+            </cube-scroll-nav-panel>
+            </cube-scroll-nav>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -34,16 +45,19 @@ export default {
       current: ""
     };
   },
-  methods: {
-      goto(name,id){
-            // 编程式导航:获取router实例
-            let obj = {name};
-            if(id){
-                obj.params = {id};
-            }
-            this.$router.push(obj);
-      }
-  },
+    methods: {
+        goto(name,id){
+                // 编程式导航:获取router实例
+                let obj = {name};
+                if(id){
+                    obj.params = {id};
+                }
+                this.$router.push(obj);
+        },
+        back(){
+            this.$router.back();
+        }
+    },
   created() {
     let id = this.$route.params.id;
     console.log(this.$route.params.id);
@@ -60,6 +74,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header{
+    width: 100%;
+    height: 3.125rem;
+    background: -webkit-linear-gradient(left,#5fe8ce 2%,#4da5ed);
+    z-index: 99;
+    background: #fff;
+    border-bottom:1px solid #efefef;
+    a{
+        width: 2.75rem;
+        height: 2.75rem;
+        text-align: center;
+        line-height: 2.75rem;
+        font-size: 1.5625rem;
+        color: black;
+        float: left;
+    }
+    .header_input{
+        height: 1.875rem;
+        position: absolute;
+        left: 2.75rem;
+        right: 2.75rem;
+        top: 0.4375rem;
+        background: #efefef;
+        border-radius: 1.25rem;
+        -webkit-border-radius: 1.25rem;
+        padding: 0 0.875rem 0 2.125rem;
+        input{
+            height: 1.125rem;
+            line-height: 1.125rem;
+            font-size: 0.9375rem;
+            width: 100%;
+            float: left;
+            margin: 0.375rem 0;
+            color: #222;
+            overflow: hidden;
+            word-break: keep-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: #efefef;
+        }
+        span{
+            width: 2.125rem;
+            height: 1.875rem;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url(../assets/ss.png) no-repeat 0.875rem center;
+            background-size: 0.875rem;
+        }
+    }
+}
 .cube-scroll-nav-panel{
     h2 {
         font-size: 1.625rem;
@@ -68,20 +134,22 @@ export default {
         display: none;
     }
     >img{
-        margin-top:2.5rem;
+        // margin-top:2.5rem;
         width: 100%;
         height: 8.125rem;
     }
     ul{
+        display: flex;
+        flex-wrap: wrap;
         li:nth-child(odd){
-            border-right:1px solid #efefef;
+            border-right:0.0625rem solid #efefef;
         }
         li:nth-child(even){
-            border-left:1px solid #efefef;
+            border-left:0.0625rem solid #efefef;
         }
         li{
             width: 50%;
-            float: left;
+            // float: left;
             padding: 0.9375rem 0.625rem;
             border-bottom:0.125rem solid #efefef;
             height: 18.75rem;

@@ -1,75 +1,77 @@
 <template>
-    <div style="padding-bottom:3.125rem;">
-        <div class="top">
-            <img src="@/img/sz.png" alt style="float:right;padding-right:0.625rem;">
-            <span class="head">
-                <i class="head-i">
-                    <img src="@/img/tx.png" alt>
+    <div class="bigbox">
+        <div class="bigcenter">
+            <div class="top">
+                <img src="@/img/sz.png" alt style="float:right;padding-right:0.625rem;">
+                <span class="head">
+                    <i class="head-i">
+                        <img src="@/img/tx.png" alt>
+                    </i>
+                </span>
+                <span class="enter" @click="goto('login')">登录/注册</span>
+                <p class="box">
+                <span>
+                    <img src="@/img/vip.png" alt class="i-1">会员卡
+                </span>
+                <i>
+                    <img src="@/img/kq.png" alt class="i-2">卡券
                 </i>
-            </span>
-            <span class="enter" @click="goto('login')">登录/注册</span>
-            <p class="box">
-            <span>
-                <img src="@/img/vip.png" alt class="i-1">会员卡
-            </span>
-            <i>
-                <img src="@/img/kq.png" alt class="i-2">卡券
-            </i>
-            <i>
-                <img src="@/img/tk.png" alt class="i-2">关注
-            </i>
-            <i>
-                <img src="@/img/gz.png" alt class="i-2">积分
-            </i>
-            <i>
-                <img src="@/img/tm.png" alt class="i-2">条码
-            </i>
-            </p>
-        </div>
-        <h2 class="h-noe">
-            <span class="s-one">我的订单</span>
-            <span class="s-two">全部</span>
-        </h2>
-        <ul class="ul-i">
-            <li v-for="(item,i) in draw" :key="i" class="li-i">
-                <img :src="item.img">
-                <span>{{item.term}}</span>
-            </li>
-        </ul>
-        <div style="height: 1.875rem;">
-            <h2 class="h-two">
-                <span class="s-three">健康档案</span>
-                <span class="s-four">全部</span>
+                <i>
+                    <img src="@/img/tk.png" alt class="i-2">关注
+                </i>
+                <i>
+                    <img src="@/img/gz.png" alt class="i-2">积分
+                </i>
+                <i>
+                    <img src="@/img/tm.png" alt class="i-2">条码
+                </i>
+                </p>
+            </div>
+            <h2 class="h-noe">
+                <span class="s-one">我的订单</span>
+                <span class="s-two">全部</span>
             </h2>
-        </div>
-
-        <div id="mine">
-            <cube-scroll ref="scroll" direction="horizontal" class="horizontal-scroll-list-wrap">
-                <ul class="list-wrapper">
-                    <li class="list-item" v-for="(item,i) in stamina" :key="i">
-                        <i>
-                            <img :src="item.img">
-                        </i>
-                        <span>{{item.corporeity}}</span>
-                        <br>
-                        <span>{{item.facility}}</span>
-                        <br>
-                        <span>{{item.tiem}}</span>
-                        <br>
-                    </li>
-                </ul>
-            </cube-scroll>
-        </div>
-        <div>
-            <ul>
-                <li class="point-i" v-for="(item,i) in point" :key="i">
-                    {{item.gps}}
-                    <span>
-                    {{item.phone}}&nbsp;&nbsp;
-                    <img :src="item.img" alt>
-                    </span>
+            <ul class="ul-i">
+                <li v-for="(item,i) in draw" :key="i" class="li-i">
+                    <img :src="item.img">
+                    <span>{{item.term}}</span>
                 </li>
             </ul>
+            <div style="height: 1.875rem;">
+                <h2 class="h-two">
+                    <span class="s-three">健康档案</span>
+                    <span class="s-four">全部</span>
+                </h2>
+            </div>
+
+            <div id="mine">
+                <cube-scroll ref="scroll" direction="horizontal" class="horizontal-scroll-list-wrap">
+                    <ul class="list-wrapper">
+                        <li class="list-item" v-for="(item,i) in stamina" :key="i">
+                            <i>
+                                <img :src="item.img">
+                            </i>
+                            <span>{{item.corporeity}}</span>
+                            <br>
+                            <span>{{item.facility}}</span>
+                            <br>
+                            <span>{{item.tiem}}</span>
+                            <br>
+                        </li>
+                    </ul>
+                </cube-scroll>
+            </div>
+            <div>
+                <ul>
+                    <li class="point-i" v-for="(item,i) in point" :key="i">
+                        {{item.gps}}
+                        <span>
+                        {{item.phone}}&nbsp;&nbsp;
+                        <img :src="item.img" alt>
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </div>
         <Nav></Nav>
     </div>

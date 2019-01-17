@@ -12,6 +12,37 @@ body>div{height: 100%;}
     background:rgba(0,0,0,.2)
 }
 fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }   /*去掉input等聚焦时的蓝色边框*/
+// detail下的下弹窗
+.popup{
+    .mint-popup-bottom{
+        height: 350px;
+        width: 100%;
+    }
+}
+// detail下的轮播
+.detail .mint-swipe-indicators{
+    display: none;
+}
+// datalist下的高亮
+#datalist .cube-scroll-nav-bar-item_active{
+    border-bottom:1px solid #fc9153;
+}
+// bigbox
+.bigbox{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    .header{
+        z-index: 10;
+    }
+    .bigcenter{
+        flex:1;
+        overflow-x: hidden
+    }
+    .bigfooter{
+        height: 3rem;
+    }
+}
 // detail下面的
 #woqu{
     .cube-scroll-content{
@@ -96,11 +127,12 @@ fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:non
 }
 // Datalist下面的h2
 .cube-scroll-nav-panel-title{
-    display: none;
+    // display: none;
+    visibility:hidden;
 }
 // home组件下的轮播
 #carousel{
-    margin-top: 5.3125rem;
+    margin-top: 10px;
     // padding: 0 0.625rem;
     height: 6.125rem;
     .mint-swipe{

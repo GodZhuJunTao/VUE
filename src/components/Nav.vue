@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bigfooter">
         <mt-tabbar v-model="selected" fixed id="nav"> 
             <mt-tab-item :id="tab.name" v-for="tab in tabs" :key="tab.name" @click.native="goto(tab.path)">
                 <!-- <myicons :type="tab.icon" /> -->
