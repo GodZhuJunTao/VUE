@@ -65,7 +65,7 @@ export default {
       .get(
         'ygapi?method=getProductSecondCategoryAndGoodsData&platformType=wap&pid='+id+'&storeid='
       ).then(res => {
-        console.log(res.data.categorys);
+        // console.log(res.data.categorys);
         this.datalist = res.data.categorys;
         this.current = res.data.categorys[0].category_name;
       });

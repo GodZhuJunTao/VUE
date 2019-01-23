@@ -68,7 +68,7 @@
                 <div class="_spc_cont">
                     <dl class="_pro_cont">
                         <dt class="_pro_dt">
-                            <img id="guigeImage" :src="'http://img.zdfei.com/'+imgs[0].images">
+                            <img id="guigeImage" :src="bimg">
                         </dt>
                         <dd class="_pro_price">
                             <span class="_price_sign">¥</span>
@@ -120,7 +120,8 @@ export default {
             imgs:[],
             goods:[],
             price:'',
-            popupVisible:false
+            popupVisible:false,
+            bimg:''
         }
     },
     methods:{
@@ -139,11 +140,12 @@ export default {
         let id = this.$route.params.id;
         // console.log(this.$route.params.id);//
         this.$axios.get('ygapi?method=goodsDetailWapMINAUse&platFormType=wap&goodsId='+id+'&storeId=').then(res=>{
-            console.log(res.data);
+            // console.log(res.data);
             this.imgs = res.data.goodsImages;
             this.goods = res.data.goods;
             this.price = res.data.goodsPrice.price;
             this.cnzzs = res.data.cnzzs;
+            this.bimg = 'http://img.zdfei.com/'+this.imgs[0].images;
         })
     }
 }

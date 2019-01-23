@@ -208,14 +208,14 @@ export default {
     created(){
         this.$axios.get('ygapi?method=GetHomeNewInfoService-V10&client_type=wap').then(res=>{
             let data = res.data.hp;
-            console.log(data);
+            // console.log(data);
             this.cflist = data.cfList;
             this.typelist = data.typeList;
             // this.mlist = data.mList;
         })
         this.$axios.get('ygapi?method=GetHomePageActivityServiceV4&client_type=wap&pageNo=2&pageSize=8').then(res=>{
             let data = res.data.list;
-            console.log(data);
+            // console.log(data);
             this.list = data;
         })
     },
